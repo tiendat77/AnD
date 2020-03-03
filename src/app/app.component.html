@@ -1,3 +1,59 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-app [class.dark-theme]="dark">
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <!-- <ion-list lines="none">
+          <ion-list-header>Account</ion-list-header>
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="/login"
+                      routerLinkActive="active"
+                      routerDirection="root"
+                      detail="false">
+              <ion-icon slot="start" name="log-in"></ion-icon>
+              <ion-label>Login</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list> -->
+
+        <ion-list lines="none">
+          <ion-list-header>Navigate</ion-list-header>
+
+          <ion-menu-toggle autoHide="false" *ngFor="let page of pages; let i = index">
+            <ion-item [routerLink]="page.url"
+                      routerLinkActive="active"
+                      routerDirection="root"
+                      detail="false">
+              <ion-icon slot="start" [name]="page.icon"></ion-icon>
+              <ion-label>{{ page.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list lines="none">
+          <ion-list-header>Tutorial</ion-list-header>
+          <ion-menu-toggle autoHide="false">
+            <ion-item button (click)="showTutorial()" detail="false">
+              <ion-icon slot="start" name="tv"></ion-icon>
+            <ion-label>Show Tutorial</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>Dark Theme</ion-label>
+            <ion-toggle [(ngModel)]="dark"></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>
