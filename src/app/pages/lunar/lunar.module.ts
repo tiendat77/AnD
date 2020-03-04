@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LunarPageRoutingModule } from './lunar-routing.module';
 
 import { LunarPage } from './lunar.page';
+import { CalendarService } from './calendar.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { LunarPage } from './lunar.page';
     IonicModule,
     LunarPageRoutingModule
   ],
-  declarations: [LunarPage]
+  declarations: [LunarPage],
+  providers: [CalendarService]
 })
 export class LunarPageModule {}

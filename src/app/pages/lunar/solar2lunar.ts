@@ -12,6 +12,7 @@ export function LunarYear(year: number): string {
   return can + ' ' + chi;
 }
 
+// month start from 1
 export function Solar2Lunar(date: number, month: number, year: number): Lunar {
   const lunar: moment.Moment = moment().year(year).month(month - 1).date(date).lunar();
   return {
