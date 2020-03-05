@@ -14,8 +14,12 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
+        .picker {
+          margin-left: -16px;
+        }
       }
-  
+
       .weeks-wrapper {
         .week-header {
           height: 20px;
@@ -34,12 +38,36 @@
       }
     }
   }
-  
+
   .lunar {
     height: 50%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    .calendar {}
+    .calendar {
+      height: 100%;
+      width: 70%;
+      border: 1px solid rgba(#000000, .12);
+      margin-bottom: 8px;
+
+      .calendar-toolbar {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .date {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: start;
+      }
+    }
   }
 
   .title {

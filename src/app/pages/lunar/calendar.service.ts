@@ -4,7 +4,6 @@ import { IDate } from '../../interfaces/date';
 import { Solar2Lunar } from './solar2lunar';
 
 import * as moment from 'moment';
-import * as lodash from 'lodash';
 
 @Injectable()
 export class CalendarService {
@@ -14,8 +13,7 @@ export class CalendarService {
   month: number;
   weeks: any[];
 
-  weekHeader: string[] = [ 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT' ];
-  monthHeader: string[] = [  ];
+  weekDays: string[] = [ 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN' ];
 
   model = {
     selectedCalendar: '',
@@ -61,7 +59,7 @@ export class CalendarService {
           month: tempMonth,
           date: tempDate,
         },
-        lunar: Solar2Lunar(tempDate, tempMonth, tempYear),
+        lunar: Solar2Lunar(tempDate, tempMonth, tempYear), // TODO: /month when date = 1;
         isDisabled: tempMonth !== month,
         isToday: isToday(tempDate, tempMonth)
       };

@@ -26,12 +26,12 @@
             </ion-button>
           </ion-buttons>
 
-          <ion-datetime displayFormat="MMM YYYY" pickerFormat="MMM YYYY"
-                        min="1980" max="2090" cancelText="CANCEL" doneText="OK"
+          <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
+                        displayFormat="MMM YYYY" pickerFormat="MMM YYYY" mode="md"
+                        min="1980" max="2090"
                         [value]="calendarService.model.selectedCalendar"
                         (ionChange)="calendarService.chooseMonth($event)">
           </ion-datetime>
-          <!-- <ion-label>{{ selectedCalendar.month + ' - ' + selectedCalendar.year }}</ion-label> -->
 
           <ion-buttons slot="end">
             <ion-button (click)="calendarService.nextMonth()">
@@ -44,8 +44,7 @@
           <div class="week-header">
             <ion-grid>
               <ion-row>
-                <!-- TODO: rename var -->
-                <ion-col *ngFor="let class of calendarService.weekHeader">{{ class }}</ion-col>
+                <ion-col *ngFor="let weekDay of calendarService.weekDays">{{ weekDay }}</ion-col>
               </ion-row>
             </ion-grid>
           </div>
@@ -55,7 +54,7 @@
                 <ion-col *ngFor="let date of week; trackBy: trackById"
                          (click)="selectDate(date)">
                   <span [class.now]="date.isToday"
-                        [class.selected]="date.solar.date === selectedDate"
+                        [class.selected]="date.solar.date === selectedDate.date && date.solar.month === selectedDate.month"
                         *ngIf="!date.isDisabled">
                     {{ date.solar.date }}
                   </span>
@@ -72,7 +71,16 @@
         <span>Lunar Calendar</span>
       </div>
       <div class="calendar">
-
+        <div>
+          <div class="calendar-toolbar">
+            <span>{{ lunar.year + ' - ' + (lunar.month + 1) }}</span>
+          </div>
+          <div class="date">
+            <span>Lunar year: {{ lunar.lunarYear }}</span>
+            <span>Lunar month: {{ (lunar.month + 1) }}</span>
+            <span>Lunar date: {{ lunar.date }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
