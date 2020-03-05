@@ -49,7 +49,7 @@
             </ion-grid>
           </div>
           <div class="weeks">
-            <ion-grid *ngFor="let week of calendarService.weeks; trackBy: trackById">
+            <ion-grid *ngFor="let week of calendarService.weeks">
               <ion-row>
                 <ion-col *ngFor="let date of week; trackBy: trackById"
                          (click)="selectDate(date)">

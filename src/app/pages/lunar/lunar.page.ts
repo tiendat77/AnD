@@ -54,4 +54,14 @@ export class LunarPage implements OnInit {
     this.lunar = date.lunar;
   }
 
+  trackById(index, item) {
+    if (!item) {
+      if (index) { return index; }
+      return null;
+    }
+
+    return item.solar.date;
+
+  }
+
 }

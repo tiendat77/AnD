@@ -1,8 +1,8 @@
 {
   "name": "and2",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "TienDatHuynh",
+  "homepage": "",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -25,6 +25,7 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^2.2.0",
     "cordova-android": "8.1.0",
+    "cordova-browser": "6.0.0",
     "core-js": "^2.5.4",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
@@ -75,7 +76,8 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }
