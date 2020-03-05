@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { DateDiffPageRoutingModule } from './date-diff-routing.module';
 
 import { DateDiffPage } from './date-diff.page';
+import { SettingsComponent } from './settings/settings.component';
+import { DateDiffService } from './date-diff.service';
 
 @NgModule({
   imports: [
@@ -15,6 +17,11 @@ import { DateDiffPage } from './date-diff.page';
     IonicModule,
     DateDiffPageRoutingModule
   ],
-  declarations: [DateDiffPage]
+  declarations: [
+    DateDiffPage,
+    SettingsComponent
+  ],
+  providers: [DateDiffService],
+  entryComponents: [SettingsComponent]
 })
 export class DateDiffPageModule {}

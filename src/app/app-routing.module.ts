@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { CheckTutorial } from './providers/check-tutorial.service';
+
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tabs/lunar',
+    redirectTo: '/tutorial',
     pathMatch: 'full' },
   {
     path: 'tabs',
@@ -12,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'tutorial',
-    loadChildren: () => import('./pages/tutorial/tutorial.module').then( m => m.TutorialPageModule)
+    loadChildren: () => import('./pages/tutorial/tutorial.module').then( m => m.TutorialPageModule),
+    canLoad: [CheckTutorial]
   },
   {
     path: 'about',

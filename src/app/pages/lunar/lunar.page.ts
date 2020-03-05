@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SolarDate, IDate, LunarDate } from 'src/app/interfaces/date';
+import { IDate, LunarDate } from 'src/app/interfaces/date';
 import { Solar2Lunar } from './solar2lunar';
 import { CalendarService } from './calendar.service';
 
