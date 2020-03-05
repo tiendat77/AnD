@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SolarDate, IDate } from 'src/app/interfaces/date';
 import { Solar2Lunar } from './solar2lunar';
 import { CalendarService } from './calendar.service';
 
@@ -10,24 +11,40 @@ import { CalendarService } from './calendar.service';
 })
 export class LunarPage implements OnInit {
 
-  solar: any;
-  lunar: any;
+  selectedCalendar: SolarDate;
+  selectedDate: number;
   result = '';
 
-  constructor(public calendarService: CalendarService) { }
+  constructor(
+    public calendarService: CalendarService
+  ) { }
 
   ngOnInit() {
     this.initialize();
   }
 
   initialize() {
-    const lunar = Solar2Lunar(24, 4, 2020);
-    console.log(lunar.canchi + ' ' + lunar.month + ' ' + lunar.date);
-    this.calendarService.initialize(2020, 3);
+    const now = new Date();
+    this.selectedCalendar = {
+      year: now.getFullYear(),
+      month: now.getMonth() + 1,
+      date: now.getDate()
+    };
+
+    this.selectedDate = now.getDate();
+
+    const lunar = Solar2Lunar(now.getDate(), now.getMonth(), now.getFullYear());
+    console.log(lunar.lunarYear + ' ' + lunar.month + ' ' + lunar.date);
+    this.calendarService.initialize(now.getFullYear(), now.getMonth());
   }
 
   refresh() {
-    console.log('refresh');
+    console.log('refresh', this.calendarService.weeks);
+  }
+
+  selectDate(date: IDate) {
+    console.log('selected date: ', date);
+    this.selectedDate = date.solar.date;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Lunar } from '../../interfaces/lunar';
+import { LunarDate } from '../../interfaces/date';
 import * as moment from 'moment';
 import 'moment-lunar';
 
@@ -12,13 +12,13 @@ export function LunarYear(year: number): string {
   return can + ' ' + chi;
 }
 
-// month start from 1
-export function Solar2Lunar(date: number, month: number, year: number): Lunar {
-  const lunar: moment.Moment = moment().year(year).month(month - 1).date(date).lunar();
+// month start from 0
+export function Solar2Lunar(date: number, month: number, year: number): LunarDate {
+  const lunar: moment.Moment = moment().year(year).month(month).date(date).lunar();
   return {
     date: lunar.date(),
-    month: lunar.month() + 1,
+    month: lunar.month(),
     year: lunar.year(),
-    canchi: LunarYear(lunar.year())
+    lunarYear: LunarYear(lunar.year())
   };
 }

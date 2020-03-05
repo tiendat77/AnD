@@ -5,16 +5,51 @@
   .solar {
     height: 50%;
     width: 100%;
+
+    .calendar {
+
+      .calendar-toolbar {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+  
+      .weeks-wrapper {
+        .week-header {
+          height: 20px;
+        }
+  
+        .weeks {
+          .now {
+            color: #2fdf75;
+          }
+
+          .selected {
+            color: #fff;
+            background-color: #17a34f;
+          }
+        }
+      }
+    }
   }
   
   .lunar {
     height: 50%;
     width: 100%;
+
+    .calendar {}
   }
 
   .title {
     width: 100%;
     height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     
   }
+
 }

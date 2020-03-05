@@ -18,10 +18,62 @@
       <div class="title">
         <span>Solar Calendar</span>
       </div>
+      <div class="calendar">
+        <div class="calendar-toolbar">
+          <ion-buttons slot="start">
+            <ion-button (click)="calendarService.previousMonth()">
+              <ion-icon name="chevron-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+
+          <ion-datetime displayFormat="MMM YYYY" pickerFormat="MMM YYYY"
+                        min="1980" max="2090" cancelText="CANCEL" doneText="OK"
+                        [value]="calendarService.model.selectedCalendar"
+                        (ionChange)="calendarService.chooseMonth($event)">
+          </ion-datetime>
+          <!-- <ion-label>{{ selectedCalendar.month + ' - ' + selectedCalendar.year }}</ion-label> -->
+
+          <ion-buttons slot="end">
+            <ion-button (click)="calendarService.nextMonth()">
+              <ion-icon name="chevron-forward"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>
+
+        <div class="weeks-wrapper">
+          <div class="week-header">
+            <ion-grid>
+              <ion-row>
+                <!-- TODO: rename var -->
+                <ion-col *ngFor="let class of calendarService.weekHeader">{{ class }}</ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="weeks">
+            <ion-grid *ngFor="let week of calendarService.weeks; trackBy: trackById">
+              <ion-row>
+                <ion-col *ngFor="let date of week; trackBy: trackById"
+                         (click)="selectDate(date)">
+                  <span [class.now]="date.isToday"
+                        [class.selected]="date.solar.date === selectedDate"
+                        *ngIf="!date.isDisabled">
+                    {{ date.solar.date }}
+                  </span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+      </div>
     </div>
   
     <div class="lunar">
-      
+      <div class="title">
+        <span>Lunar Calendar</span>
+      </div>
+      <div class="calendar">
+
+      </div>
     </div>
   </div>
 
