@@ -1,9 +1,120 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>about</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>About</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-item detail="false" lines="none">
+              <ion-avatar slot="start">
+                <img src="assets/img/appicon.svg">
+              </ion-avatar>
+              <ion-label>
+                <h2>AnD2</h2>
+                <p>&copy; 2020 TienDatHuynh</p>
+              </ion-label>
+            </ion-item>
+          </ion-card-header>
 
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+              <ion-label>
+                <h3>Version</h3>
+                <p>1.0.0</p>
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-icon name="code-outline" slot="start"></ion-icon>
+              <ion-label>
+                <h3>Source code</h3>
+                <p>On Github</p>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-item detail="false" lines="none">
+              <ion-label slot="start">
+                <h2>Author</h2>
+              </ion-label>
+            </ion-item>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-icon name="person-outline" slot="start"></ion-icon>
+              <ion-label>
+                <h3>TienDatHuynh</h3>
+                <p>Huỳnh Tiến Đạt</p>
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-icon name="logo-github" slot="start"></ion-icon>
+              <ion-label>
+                <h3>Follow on GitHub</h3>
+                <p>attain7710</p>
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-icon name="mail-outline" slot="start"></ion-icon>
+              <ion-label>
+                <h3>Email</h3>
+                <p>huynhztienzdat@gmail.com</p>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-item detail="false" lines="none">
+              <ion-label slot="start">
+                <h2>Share & Feedback</h2>
+              </ion-label>
+            </ion-item>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-icon name="share-social-outline" slot="start"></ion-icon>
+              <ion-label>
+                <h3>Share to your friends</h3>
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-icon name="chatbox-ellipses-outline" slot="start"></ion-icon>
+              <ion-label>
+                <h3>Feedback</h3>
+              </ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -45,11 +45,20 @@
           </ion-menu-toggle>
         </ion-list>
 
-        <ion-list>
+        <ion-list lines="none">
           <ion-item>
-            <ion-label>Dark Theme</ion-label>
-            <ion-toggle [(ngModel)]="dark"></ion-toggle>
+            <ion-label (click)="dark=!dark">Dark Theme</ion-label>
+            <ion-toggle (ionChange)="toggleTheme()" [(ngModel)]="dark"></ion-toggle>
           </ion-item>
+        </ion-list>
+
+        <ion-list lines="none">
+          <ion-menu-toggle autoHide="false">
+            <ion-item (click)="showAbout()" detail="false">
+              <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+              <ion-label>About</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
       </ion-content>
     </ion-menu>
