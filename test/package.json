@@ -2,10 +2,10 @@
   "name": "and2",
   "version": "1.0.0",
   "description": "Test my ionic android app",
-  "main": "app.js",
+  "main": "and2.js",
   "scripts": {
-    "test": "./get && && ./unzip && ./push",
-    "start": "node and2.js",
+    "test": "./get && ./push",
+    "start": "./get && ./unzip && node and2.js",
     "dev": "nodemon and2.js"
   },
   "author": "TienDatHuynh",

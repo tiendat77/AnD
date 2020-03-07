@@ -1,1 +1,2 @@
+echo "Pushing built app to server!" &&
 scp -i "key.pem" prod/www.zip ubuntu@ec2-13-59-35-198.us-east-2.compute.amazonaws.com:~/and2-test/prod/
