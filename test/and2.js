@@ -13,7 +13,7 @@ app
    .use(bodyParser.json());
 
 // Routes
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'prod/www', 'index.html'));
 });
 

@@ -4,7 +4,7 @@
   "description": "Test my ionic android app",
   "main": "app.js",
   "scripts": {
-    "test": "./get && ./push",
+    "test": "./get && && ./unzip && ./push",
     "start": "node and2.js",
     "dev": "nodemon and2.js"
   },
