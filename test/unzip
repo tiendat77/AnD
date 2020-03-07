@@ -1,0 +1,3 @@
+rm -rf prod/www &&
+unzip -o prod/www.zip -d prod/ &&
+echo "Done!"

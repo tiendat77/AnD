@@ -17,7 +17,7 @@
                     displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" mode="md"
                     min="2010" max="2090"
                     [value]="diffService.model.startDate"
-                    (ionChange)="changeDate($event, 'start')">
+                    (ionChange)="diffService.changeDate($event, 'start')">
       </ion-datetime>
     </ion-item>
     <ion-item>
@@ -26,7 +26,7 @@
                     displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" mode="md"
                     min="2010" max="2090"
                     [value]="diffService.model.endDate"
-                    (ionChange)="changeDate($event, 'end')">
+                    (ionChange)="diffService.changeDate($event, 'end')">
       </ion-datetime>
     </ion-item>
   </ion-list>

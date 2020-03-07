@@ -1,39 +1,45 @@
 .calendar-wrapper {
-  width: 100%;
   height: 100%;
 
   .solar {
     height: 50%;
-    width: 100%;
+    text-align: center;
 
     .calendar {
 
       .calendar-toolbar {
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        text-align: center;
 
         .picker {
           margin-left: -16px;
         }
       }
 
-      .weeks-wrapper {
-        .week-header {
-          height: 20px;
-        }
-  
-        .weeks {
-          .now {
-            color: #2fdf75;
-          }
+      .week-header {
+        color: rgba(#000000, .5);
+      }
 
-          .selected {
-            color: #fff;
-            background-color: #17a34f;
-          }
+      .weeks {
+        .block {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+        }
+
+        .now {
+          color: #2fdf75;
+        }
+
+        .selected {
+          color: #fff;
+          border-radius: 50%;
+          background-color: #3af585;
+          padding: 8px;
+        }
+
+        .disabled {
+          pointer-events: none;
         }
       }
     }
@@ -41,43 +47,23 @@
 
   .lunar {
     height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 
     .calendar {
-      height: 100%;
       width: 70%;
+      height: calc(100% - 36px);
       border: 1px solid rgba(#000000, .12);
-      margin-bottom: 8px;
+      margin: auto;
 
       .calendar-toolbar {
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
       }
 
-      .date {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: start;
-      }
     }
   }
 
   .title {
-    width: 100%;
-    height: 36px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    
+    text-align: center;
   }
 
 }

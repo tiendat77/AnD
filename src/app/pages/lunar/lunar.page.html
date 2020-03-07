@@ -8,65 +8,64 @@
 </ion-header>
 
 <ion-content>
-  <div class="calendar-wrapper">
-    <div class="solar">
-      <div class="title">
-        <span>Solar Calendar</span>
-      </div>
-      <div class="calendar">
-        <div class="calendar-toolbar">
-          <ion-buttons slot="start">
-            <ion-button (click)="calendarService.previousMonth()">
-              <ion-icon name="chevron-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
+  <ion-grid class="calendar-wrapper">
+    <ion-grid class="solar">
+      <ion-row class="title">
+        <ion-col>Solar Calendar</ion-col>
+      </ion-row>
 
-          <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
-                        displayFormat="MMM YYYY" pickerFormat="MMM YYYY" mode="md"
-                        min="1980" max="2090"
-                        [value]="calendarService.model.selectedCalendar"
-                        (ionChange)="calendarService.chooseMonth($event)">
-          </ion-datetime>
-
-          <ion-buttons slot="end">
-            <ion-button (click)="calendarService.nextMonth()">
-              <ion-icon name="chevron-forward"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </div>
-
-        <div class="weeks-wrapper">
-          <div class="week-header">
-            <ion-grid>
-              <ion-row>
-                <ion-col *ngFor="let weekDay of calendarService.weekDays">{{ weekDay }}</ion-col>
-              </ion-row>
-            </ion-grid>
-          </div>
-          <div class="weeks">
-            <ion-grid *ngFor="let week of calendarService.weeks">
-              <ion-row>
-                <ion-col *ngFor="let date of week; trackBy: trackById"
-                         (click)="selectDate(date)">
-                  <span [class.now]="date.isToday"
-                        [class.selected]="date.solar.date === selectedDate.date && date.solar.month === selectedDate.month"
-                        *ngIf="!date.isDisabled">
-                    {{ date.solar.date }}
-                  </span>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </div>
-        </div>
-      </div>
-    </div>
+      <ion-grid class="calendar">
+        <ion-row class="calendar-toolbar">
+          <ion-col>
+            <ion-buttons style="justify-content: center;">
+              <ion-button (click)="calendarService.previousMonth()">
+                <ion-icon name="chevron-back"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col>
+            <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
+                          displayFormat="MMM YYYY" pickerFormat="MMM YYYY" mode="md"
+                          min="1980" max="2090"
+                          [value]="calendarService.model.selectedCalendar"
+                          (ionChange)="calendarService.chooseMonth($event)">
+            </ion-datetime>
+          </ion-col>
+          <ion-col>
+            <ion-buttons style="justify-content: center;">
+              <ion-button (click)="calendarService.nextMonth()">
+                <ion-icon name="chevron-forward"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
   
-    <div class="lunar">
-      <div class="title">
-        <span>Lunar Calendar</span>
-      </div>
-      <div class="calendar">
-        <div>
+        <ion-row class="week-header">
+          <ion-col *ngFor="let weekDay of calendarService.weekDays">
+            <span>{{ weekDay }}</span>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row *ngFor="let week of calendarService.weeks" class="weeks">
+          <ion-col [class.disabled]="date.isDisabled"
+                   *ngFor="let date of week; trackBy: trackById"
+                   (click)="selectDate(date)">
+            <span [class.now]="date.isToday"
+                  [class.selected]="date.solar.date === selectedDate.date && date.solar.month === selectedDate.month"
+                  *ngIf="!date.isDisabled">
+              {{ date.solar.date }}
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-grid>
+
+    <ion-grid class="lunar">
+      <ion-row class="title">
+        <ion-col>Lunar Calendar</ion-col>
+      </ion-row>
+      <ion-grid class="calendar">
+        <ion-row>
           <div class="calendar-toolbar">
             <span>{{ lunar.year + ' - ' + (lunar.month + 1) }}</span>
           </div>
@@ -75,10 +74,10 @@
             <span>Lunar month: {{ (lunar.month + 1) }}</span>
             <span>Lunar date: {{ lunar.date }}</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        </ion-row>
+      </ion-grid>
+    </ion-grid>
+  </ion-grid>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button color="primary" size="small" (click)="refresh()">

@@ -1,0 +1,5 @@
+rm -f prod/www.zip &&
+cp -r ../platforms/browser/www www &&
+zip -r prod/www.zip www &&
+rm -rf www &&
+echo "Done!"
