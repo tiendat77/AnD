@@ -10,6 +10,7 @@ export interface SolarDate {
   year: number;
   month: number;
   date: number;
+  weekday: string;
 }
 
 export interface LunarDate {

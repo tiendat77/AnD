@@ -9,81 +9,125 @@
 
 <ion-content>
   <ion-grid class="calendar-wrapper">
-    <ion-grid class="solar">
-      <ion-row class="title">
-        <ion-col>Solar Calendar</ion-col>
-      </ion-row>
+    <ion-row class="solar">
+      <ion-col>
+        <ion-grid>
+          <ion-row class="toolbar">
+            <ion-col>
+              <ion-buttons style="justify-content: center;">
+                <ion-button (click)="calendarService.previousMonth()">
+                  <ion-icon name="chevron-back"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-col>
+            <ion-col>
+              <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
+                            displayFormat="MMM YYYY" pickerFormat="MMM YYYY"
+                            mode="md" min="1980" max="2090"
+                            [value]="calendarService.model.selectedCalendar"
+                            (ionChange)="calendarService.chooseMonth($event)">
+              </ion-datetime>
+            </ion-col>
+            <ion-col>
+              <ion-buttons style="justify-content: center;">
+                <ion-button (click)="calendarService.nextMonth()">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
 
-      <ion-grid class="calendar">
-        <ion-row class="calendar-toolbar">
-          <ion-col>
-            <ion-buttons style="justify-content: center;">
-              <ion-button (click)="calendarService.previousMonth()">
-                <ion-icon name="chevron-back"></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-col>
-          <ion-col>
-            <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
-                          displayFormat="MMM YYYY" pickerFormat="MMM YYYY" mode="md"
-                          min="1980" max="2090"
-                          [value]="calendarService.model.selectedCalendar"
-                          (ionChange)="calendarService.chooseMonth($event)">
-            </ion-datetime>
-          </ion-col>
-          <ion-col>
-            <ion-buttons style="justify-content: center;">
-              <ion-button (click)="calendarService.nextMonth()">
-                <ion-icon name="chevron-forward"></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </ion-col>
-        </ion-row>
-  
-        <ion-row class="week-header">
-          <ion-col *ngFor="let weekDay of calendarService.weekDays">
-            <span>{{ weekDay }}</span>
-          </ion-col>
-        </ion-row>
-  
-        <ion-row *ngFor="let week of calendarService.weeks" class="weeks">
-          <ion-col [class.disabled]="date.isDisabled"
-                   *ngFor="let date of week; trackBy: trackById"
-                   (click)="selectDate(date)">
-            <span [class.now]="date.isToday"
-                  [class.selected]="date.solar.date === selectedDate.date && date.solar.month === selectedDate.month"
-                  *ngIf="!date.isDisabled">
-              {{ date.solar.date }}
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-grid>
+          <ion-row class="week-header">
+            <ion-col *ngFor="let weekDay of calendarService.weekDays">
+              <ion-label color="medium">
+                {{ weekDay }}
+              </ion-label>
+            </ion-col>
+          </ion-row>
 
-    <ion-grid class="lunar">
-      <ion-row class="title">
-        <ion-col>Lunar Calendar</ion-col>
-      </ion-row>
-      <ion-grid class="calendar">
-        <ion-row>
-          <div class="calendar-toolbar">
-            <span>{{ lunar.year + ' - ' + (lunar.month + 1) }}</span>
-          </div>
-          <div class="date">
-            <span>Lunar year: {{ lunar.lunarYear }}</span>
-            <span>Lunar month: {{ (lunar.month + 1) }}</span>
-            <span>Lunar date: {{ lunar.date }}</span>
-          </div>
-        </ion-row>
-      </ion-grid>
-    </ion-grid>
+          <ion-row *ngFor="let week of calendarService.weeks" class="weeks">
+            <ion-col [class.disabled]="date.isDisabled"
+                     *ngFor="let date of week; trackBy: trackById"
+                     (click)="selectDate(date)">
+              <ion-label [class.now]="date.isToday"
+                         [class.selected]="date.solar.date === selectedDate.solar.date && date.solar.month === selectedDate.solar.month"
+                         *ngIf="!date.isDisabled">
+                {{ date.solar.date }}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="lunar">
+      <ion-col style="padding: 0;">
+        <ion-grid>
+          <ion-row class="month-year">
+            <ion-col>
+              <ion-label>
+                Tháng {{ selectedDate.solar.month + 1 }} năm {{ selectedDate.solar.year }}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-label class="date">{{ selectedDate.solar.date }}</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-label class="weekday">{{ selectedDate.solar.weekday }}</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <!-- Lunar Calendar -->
+          <ion-row class="lunar-field">
+            <ion-col>
+              <ion-grid style="margin: -5px;">
+                <ion-row>
+                  <ion-col>
+                    <ion-label>Tháng {{ selectedDate.lunar.month + 1 }}</ion-label>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-label class="lunar-date">{{ selectedDate.lunar.date }}</ion-label>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-label>Năm {{ selectedDate.lunar.lunarYear }}</ion-label>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+
+            <ion-col>
+              <ion-grid style="margin: -5px;">
+                <ion-row>
+                  <ion-col>
+                    <ion-label>Tháng {{ selectedDate.lunar.lunarMonth }}</ion-label>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-label>Ngày {{ selectedDate.lunar.lunarDate }}</ion-label>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button color="primary" size="small" (click)="refresh()">
+    <ion-fab-button color="secondary" size="small" (click)="refresh()">
       <ion-icon name="refresh"></ion-icon>
     </ion-fab-button>
-    <!-- <ion-fab-list side="top">
-    </ion-fab-list> -->
   </ion-fab>
 </ion-content>

@@ -1,11 +1,16 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
-      <ion-button (click)="goBack()">
-        <ion-icon name="arrow-back"></ion-icon>
+      <ion-button (click)="reset()">
+        <ion-label>Reset</ion-label>
       </ion-button>
     </ion-buttons>
     <ion-title>Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goBack()">
+        <ion-label>Done</ion-label>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

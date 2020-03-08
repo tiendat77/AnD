@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { IDate } from '../../interfaces/date';
-import { Solar2Lunar } from './solar2lunar';
+import { getLunarDate, getSolarDate } from './solar2lunar';
 
 import * as moment from 'moment';
 
@@ -31,9 +31,6 @@ export class CalendarService {
     let monthLength = moment().year(year).month(month).daysInMonth();
     const date: Date = new Date(year, month, 1);
     let iDate: IDate;
-    let tempDate: number;
-    let tempMonth: number;
-    let tempYear: number;
 
     while (date.getDay() !== 1) {
       date.setDate(date.getDate() - 1);
@@ -49,28 +46,21 @@ export class CalendarService {
       if (i % 7 === 0) {
         this.weeks.push([]);
       }
-      tempDate = date.getDate();
-      tempMonth = date.getMonth();
-      tempYear = date.getFullYear();
 
       iDate = {
-        solar: {
-          year: tempYear,
-          month: tempMonth,
-          date: tempDate,
-        },
-        lunar: Solar2Lunar(tempDate, tempMonth, tempYear), // TODO: /month when date = 1;
-        isDisabled: tempMonth !== month,
-        isToday: isToday(tempDate, tempMonth)
+        solar: getSolarDate(date),
+        lunar: getLunarDate(date),
+        isDisabled: date.getMonth() !== month,
+        isToday: isToday(date)
       };
 
       this.weeks[this.weeks.length - 1].push(iDate);
       date.setDate(date.getDate() + 1);
     }
 
-    function isToday(d: number, m: number) {
+    function isToday(day: Date) {
       const now = new Date();
-      return now.getDate() === d && now.getMonth() === m;
+      return now.getDate() === day.getDate() && now.getMonth() === day.getMonth();
     }
   }
 

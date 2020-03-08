@@ -35,7 +35,7 @@
               </ion-label>
             </ion-item>
 
-            <ion-item lines="none">
+            <ion-item lines="none" (click)="openGitHub('project')">
               <ion-icon name="code-outline" slot="start"></ion-icon>
               <ion-label>
                 <h3>Source code</h3>
@@ -67,7 +67,7 @@
               </ion-label>
             </ion-item>
 
-            <ion-item lines="none">
+            <ion-item lines="none" (click)="openGitHub('person')">
               <ion-icon name="logo-github" slot="start"></ion-icon>
               <ion-label>
                 <h3>Follow on GitHub</h3>
@@ -75,7 +75,7 @@
               </ion-label>
             </ion-item>
 
-            <ion-item lines="none">
+            <ion-item lines="none" (click)="openEmail()">
               <ion-icon name="mail-outline" slot="start"></ion-icon>
               <ion-label>
                 <h3>Email</h3>
@@ -99,7 +99,7 @@
           </ion-card-header>
 
           <ion-card-content>
-            <ion-item lines="none">
+            <ion-item lines="none" (click)="openShare()">
               <ion-icon name="share-social-outline" slot="start"></ion-icon>
               <ion-label>
                 <h3>Share to your friends</h3>

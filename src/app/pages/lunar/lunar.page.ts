@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IDate, LunarDate } from 'src/app/interfaces/date';
-import { Solar2Lunar } from './solar2lunar';
+import { IDate } from 'src/app/interfaces/date';
+import { getLunarDate, getSolarDate } from './solar2lunar';
 import { CalendarService } from './calendar.service';
 
 @Component({
@@ -11,12 +11,7 @@ import { CalendarService } from './calendar.service';
 })
 export class LunarPage implements OnInit {
 
-  selectedDate: {
-    date: number,
-    month: number,
-  };
-
-  lunar: LunarDate;
+  selectedDate: IDate;
 
   constructor(
     public calendarService: CalendarService
@@ -27,31 +22,25 @@ export class LunarPage implements OnInit {
   }
 
   initialize() {
+    this.refresh();
+
     const now = new Date();
-    const date = now.getDate();
-    const month = now.getMonth();
-    const year = now.getFullYear();
-
-    this.selectedDate = { date, month };
-
-    this.lunar = Solar2Lunar(date, month, year);
-    console.log(this.lunar.lunarYear + ' ' + this.lunar.month + ' ' + this.lunar.date);
-    this.calendarService.initialize(year, month);
+    this.calendarService.initialize(now.getFullYear(), now.getMonth());
   }
 
   refresh() {
-    console.log('refresh', this.calendarService.weeks);
+    const now = new Date();
+
+    this.selectedDate = {
+      solar: getSolarDate(now),
+      lunar: getLunarDate(now),
+      isDisabled: false,
+      isToday: true,
+    };
   }
 
   selectDate(date: IDate) {
-    console.log('selected date: ', date);
-    this.selectedDate = {
-      date: date.solar.date,
-      month: date.solar.month,
-    };
-
-    // TODO: SHOW LUNAR CALENDAR
-    this.lunar = date.lunar;
+    this.selectedDate = date;
   }
 
   trackById(index, item) {
@@ -61,7 +50,6 @@ export class LunarPage implements OnInit {
     }
 
     return item.solar.date;
-
   }
 
 }

@@ -1,7 +1,8 @@
 # AnD2 TODO LIST
 
 # About
-  [ ] Add click event -> open browser
+  [x] Add click event -> open browser
+  [ ] Fix share via...
   [ ] Fix goBack if there is no previous page
 
 # Date-diff

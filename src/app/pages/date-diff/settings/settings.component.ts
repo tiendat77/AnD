@@ -15,10 +15,18 @@ export class SettingsComponent implements OnInit {
     public diffService: DateDiffService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.diffService.model = {
+      startDate: '2013-09-30',
+      endDate: '2020-03-08'
+    };
+  }
 
   async goBack() {
     return await this.modalController.dismiss();
+  }
+
+  reset() {
   }
 
   // TODO: change start date, end date

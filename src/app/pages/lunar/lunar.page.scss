@@ -5,65 +5,73 @@
     height: 50%;
     text-align: center;
 
-    .calendar {
+    .toolbar {
+      width: 100%;
+      text-align: center;
 
-      .calendar-toolbar {
-        width: 100%;
-        text-align: center;
+      .picker {
+        margin-left: -16px;
+      }
+    }
 
-        .picker {
-          margin-left: -16px;
-        }
+    .week-header {
+      color: rgba(#000000, .5);
+    }
+
+    .weeks {
+      .block {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
       }
 
-      .week-header {
-        color: rgba(#000000, .5);
+      .now {
+        color: #2fdf75;
       }
 
-      .weeks {
-        .block {
-          display: inline-block;
-          width: 18px;
-          height: 18px;
-        }
+      .selected {
+        color: #fff;
+        border-radius: 50%;
+        background-color: #36e77d;
+        padding: 8px;
+      }
 
-        .now {
-          color: #2fdf75;
-        }
-
-        .selected {
-          color: #fff;
-          border-radius: 50%;
-          background-color: #3af585;
-          padding: 8px;
-        }
-
-        .disabled {
-          pointer-events: none;
-        }
+      .disabled {
+        pointer-events: none;
       }
     }
   }
 
   .lunar {
-    height: 50%;
+    border: 1px solid rgba(#92949c, 0.6);
     text-align: center;
+    height: 40%;
+    width: 80%;
+    margin: auto;
 
-    .calendar {
-      width: 70%;
-      height: calc(100% - 36px);
-      border: 1px solid rgba(#000000, .12);
-      margin: auto;
+    .month-year {
+      background-color: #36e77d;
+      margin: -5px;
+      margin-bottom: 1px;
+    }
 
-      .calendar-toolbar {
-        width: 100%;
+    .date {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .weekday {
+      font-weight: bold;
+    }
+
+    .lunar-field {
+      ion-row {
+        padding: 0;
       }
 
+      .lunar-date {
+        font-size: 30px;
+      }
     }
   }
-
-  .title {
-    text-align: center;
-  }
-
 }
