@@ -39,7 +39,7 @@
         </ion-list>
 
         <ion-list lines="none">
-          <ion-item (click)="showTutorial()" detail="false">
+          <ion-item button (click)="showTutorial()" detail="false">
             <ion-icon slot="start" name="tv"></ion-icon>
             <ion-label>{{ 'MENU.TUTORIAL' | translate }}</ion-label>
           </ion-item>
@@ -68,10 +68,12 @@
         </ion-list>
 
         <ion-list lines="none">
-          <ion-item (click)="showAbout()" detail="false">
-            <ion-icon slot="start" name="information-circle-outline"></ion-icon>
-            <ion-label>{{ 'MENU.ABOUT' | translate }}</ion-label>
-          </ion-item>
+          <ion-menu-toggle autoHide="false">
+            <ion-item button (click)="showAbout()" detail="false">
+              <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+              <ion-label>{{ 'MENU.ABOUT' | translate }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
       </ion-content>
     </ion-menu>
