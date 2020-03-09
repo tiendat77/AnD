@@ -33,32 +33,9 @@ export class DateDiffPage implements OnInit {
     return await settings.present();
   }
 
-  calDiff() {
-    const endDate = new Date(this.diffService.model.endDate);
-    const startDate = new Date(this.diffService.model.startDate);
-    console.log({startDate, endDate});
-
-    const timestamp = endDate.getTime() - startDate.getTime();
-    const daysDiff  = Math.round(timestamp / (24 * 60 * 60 * 1000));
-    this.diffService.model.daysDiff = daysDiff + ' days';
-
-    const years = Math.round(daysDiff / 365);
-    const months = Math.round((daysDiff % 365) / 30);
-    const days = Math.round((daysDiff % 365) % 30);
-
-    this.diffService.model.dmyDiff = years + ' years ' + months + ' months ' + days + ' days';
-    this.isCalculated = true;
-  }
-
   show() {
     if (!this.isCalculated) {
-      this.calDiff();
-    }
-
-    if (this.days) {
-      this.diff = this.diffService.model.daysDiff;
-    } else {
-      this.diff = this.diffService.model.dmyDiff;
+      this.diffService.calculateDiff();
     }
 
     this.days = !this.days;

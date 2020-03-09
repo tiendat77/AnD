@@ -16,7 +16,8 @@
   <ion-grid>
     <ion-row style="text-align: center;">
       <ion-col>
-        <ion-label>{{ diff }}</ion-label>
+        <ion-label *ngIf="days">{{ diffService.model.days }}</ion-label>
+        <ion-label *ngIf="!days">{{ diffService.model.dmy }}</ion-label>
       </ion-col>
     </ion-row>
     <ion-row style="text-align: center;">

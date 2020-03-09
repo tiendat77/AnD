@@ -21,6 +21,7 @@ export class SettingsComponent implements OnInit {
   async done() {
     this.diffService.changeDate('start', this.diffService.model.startDate);
     this.diffService.changeDate('end', this.diffService.model.endDate);
+    this.diffService.calculateDiff();
 
     return await this.modalController.dismiss();
   }
