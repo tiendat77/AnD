@@ -3,7 +3,7 @@
 # About
   [x] Add click event -> open browser
   [ ] Fix share via...
-  [ ] Fix goBack if there is no previous page
+  [x] Fix goBack if there is no previous page
 
 # Date-diff
   [ ] View

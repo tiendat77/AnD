@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Secure Message</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <ion-label>{{ model.copy }}</ion-label>
+        <ion-button (click)="copyText()">Copy</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <ion-label>{{ model.paste }}</ion-label>
+        <ion-button (click)="pasteText()">Paste</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

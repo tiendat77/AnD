@@ -12,7 +12,7 @@ export class AboutPage implements OnInit {
 
   constructor(
     private inAppBrowser: InAppBrowser,
-    private clipboar: Clipboard,
+    private clipboard: Clipboard,
     private navCtrl: NavController,
     private actionSheetCtrl: ActionSheetController,
     private toastCtrl: ToastController,
@@ -32,11 +32,11 @@ export class AboutPage implements OnInit {
       url = url + 'AnD2';
     }
 
-    this.inAppBrowser.create(url, '_blank');
+    this.inAppBrowser.create(url, '_system');
   }
 
   openEmail() {
-    window.open('mailto: huynhztienzdat@gmail.com');
+    window.open('mailto:huynhztienzdat@gmail.com', '_system');
   }
 
   async openShare() {
@@ -46,7 +46,7 @@ export class AboutPage implements OnInit {
         {
           text: 'Copy link',
           handler: () => {
-            this.clipboar.copy('https://github.com/attain7710/AnD2');
+            this.clipboard.copy('https://github.com/attain7710/AnD2');
             this.notify('Copied to clipboard');
           }
         },

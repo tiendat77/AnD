@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
+import { SecureMessageComponent } from './secure-message/secure-message.component';
 import * as aesjs from 'aes-js';
 
 @Component({
@@ -13,9 +15,19 @@ export class ToolPage implements OnInit {
 
   encryptedHex = '';
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController,
+  ) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  async openSecureMessage() {
+    const secureMessage = await this.modalCtrl.create({
+      component: SecureMessageComponent,
+      swipeToClose: true,
+    });
+
+    await secureMessage.present();
   }
 
   do() {

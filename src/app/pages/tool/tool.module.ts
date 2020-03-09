@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ToolPageRoutingModule } from './tool-routing.module';
 
 import { ToolPage } from './tool.page';
+import { SecureMessageComponent } from './secure-message/secure-message.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,10 @@ import { ToolPage } from './tool.page';
     IonicModule,
     ToolPageRoutingModule
   ],
-  declarations: [ToolPage]
+  declarations: [
+    ToolPage,
+    SecureMessageComponent,
+  ],
+  entryComponents: [SecureMessageComponent]
 })
 export class ToolPageModule {}
