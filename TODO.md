@@ -7,10 +7,10 @@
 
 # Date-diff
   [ ] View
-  [ ] Convert old code (java) to javascript
+  [x] Convert old code (java) to javascript
 ## Date-diff setting
-  [ ] Reset - Settings - Done
-  [ ] Select start - end date -> storage
+  [x] Reset - Settings - Done
+  [x] Select start - end date -> storage
 
 # App
   [x] Dark theme -> storage
