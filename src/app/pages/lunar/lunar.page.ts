@@ -23,13 +23,12 @@ export class LunarPage implements OnInit {
 
   initialize() {
     this.refresh();
-
-    const now = new Date();
-    this.calendarService.initialize(now.getFullYear(), now.getMonth());
   }
 
   refresh() {
     const now = new Date();
+
+    this.calendarService.initialize(now.getFullYear(), now.getMonth());
 
     this.selectedDate = {
       solar: getSolarDate(now),

@@ -1,8 +1,5 @@
 .calendar-wrapper {
-  height: 100%;
-
   .solar {
-    height: 50%;
     text-align: center;
 
     .toolbar {
@@ -45,7 +42,6 @@
   .lunar {
     border: 1px solid rgba(#92949c, 0.6);
     text-align: center;
-    height: 40%;
     width: 80%;
     margin: auto;
 
