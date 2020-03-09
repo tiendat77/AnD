@@ -1,6 +1,7 @@
 .calendar-wrapper {
   .solar {
     text-align: center;
+    padding-bottom: 30px;
 
     .toolbar {
       width: 100%;
@@ -23,13 +24,13 @@
       }
 
       .now {
-        color: #2fdf75;
+        color: #4854e0;
       }
 
       .selected {
         color: #fff;
         border-radius: 50%;
-        background-color: #36e77d;
+        background-color: #6370ff;
         padding: 8px;
       }
 
@@ -46,7 +47,7 @@
     margin: auto;
 
     .month-year {
-      background-color: #36e77d;
+      background-color: #5260ff;
       margin: -5px;
       margin-bottom: 1px;
     }

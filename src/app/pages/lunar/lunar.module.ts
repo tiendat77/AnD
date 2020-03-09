@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { LunarPageRoutingModule } from './lunar-routing.module';
 
@@ -14,7 +15,8 @@ import { CalendarService } from './calendar.service';
     CommonModule,
     FormsModule,
     IonicModule,
-    LunarPageRoutingModule
+    LunarPageRoutingModule,
+    TranslateModule.forChild(),
   ],
   declarations: [LunarPage],
   providers: [CalendarService]

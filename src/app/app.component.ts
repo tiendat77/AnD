@@ -9,7 +9,6 @@ import { Storage } from '@ionic/storage';
 import { version } from '../environments/version';
 import { STORAGE_THEME, STORAGE_TUTORIAL } from '../environments/storage.key';
 
-import { Page } from './interfaces/page';
 import { LanguageService } from './providers/language.service';
 
 @Component({
@@ -20,23 +19,6 @@ import { LanguageService } from './providers/language.service';
 export class AppComponent {
 
   dark = false;
-  pages: Page[] = [
-    {
-      title: 'Lunar',
-      url: '/tabs/lunar',
-      icon: 'home'
-    },
-    {
-      title: 'Date Diff',
-      url: '/tabs/date-diff',
-      icon: 'calendar'
-    },
-    {
-      title: 'Tool',
-      url: '/tabs/tool',
-      icon: 'hammer'
-    },
-  ];
 
   constructor(
     private platform: Platform,

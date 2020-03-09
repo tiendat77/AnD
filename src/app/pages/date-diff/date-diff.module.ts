@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { DateDiffPageRoutingModule } from './date-diff-routing.module';
 
@@ -15,7 +16,8 @@ import { DateDiffService } from './date-diff.service';
     CommonModule,
     FormsModule,
     IonicModule,
-    DateDiffPageRoutingModule
+    DateDiffPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     DateDiffPage,

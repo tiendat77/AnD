@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Lunar Calendar</ion-title>
+    <ion-title>{{ 'LUNAR.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -52,7 +52,7 @@
               <ion-label [class.now]="date.isToday"
                          [class.selected]="date.solar.date === selectedDate.solar.date && date.solar.month === selectedDate.solar.month"
                          *ngIf="!date.isDisabled">
-                {{ date.solar.date }}
+                <ion-text>{{ date.solar.date }}</ion-text>
               </ion-label>
             </ion-col>
           </ion-row>

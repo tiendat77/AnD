@@ -5,5 +5,17 @@
     "LANGUAGE": "Language",
     "THEME": "Theme",
     "ABOUT": "About"
+  },
+
+  "LUNAR": {
+    "TITLE": "Lunar calendar"
+  },
+
+  "DATEDIFF": {
+    "TITLE": "Date diff"
+  },
+
+  "TOOL": {
+    "TITLE": "Tool"
   }
 }

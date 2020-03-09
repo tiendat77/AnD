@@ -27,13 +27,29 @@
             <ion-label>{{ 'MENU.NAVIGATE' | translate }}</ion-label>
           </ion-list-header>
 
-          <ion-menu-toggle autoHide="false" *ngFor="let page of pages; let i = index">
-            <ion-item [routerLink]="page.url"
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="tabs/lunar"
                       routerLinkActive="active"
                       routerDirection="root"
                       detail="false">
-              <ion-icon slot="start" [name]="page.icon"></ion-icon>
-              <ion-label>{{ page.title }}</ion-label>
+              <ion-icon slot="start" src="assets/img/lunar-calendar.svg"></ion-icon>
+              <ion-label>{{ 'LUNAR.TITLE' | translate }}</ion-label>
+            </ion-item>
+
+            <ion-item routerLink="tabs/date-diff"
+                      routerLinkActive="active"
+                      routerDirection="root"
+                      detail="false">
+              <ion-icon slot="start" name="calendar"></ion-icon>
+              <ion-label>{{ 'DATEDIFF.TITLE' | translate }}</ion-label>
+            </ion-item>
+
+            <ion-item routerLink="tabs/tool"
+                      routerLinkActive="active"
+                      routerDirection="root"
+                      detail="false">
+              <ion-icon slot="start" name="hammer"></ion-icon>
+              <ion-label>{{ 'TOOL.TITLE' | translate }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
@@ -56,6 +72,7 @@
                         (ionChange)="changeLanguage($event)">
               <ion-select-option value="vi">Vietnamese</ion-select-option>
               <ion-select-option value="en">English</ion-select-option>
+              <ion-select-option value="ja">Japanese</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>

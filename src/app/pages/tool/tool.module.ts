@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { ToolPageRoutingModule } from './tool-routing.module';
 
@@ -14,7 +15,8 @@ import { SecureMessageComponent } from './secure-message/secure-message.componen
     CommonModule,
     FormsModule,
     IonicModule,
-    ToolPageRoutingModule
+    ToolPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ToolPage,

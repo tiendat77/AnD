@@ -3,12 +3,16 @@ import { NavController, ActionSheetController, ToastController } from '@ionic/an
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 
+import { version } from '../../../environments/version';
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.page.html',
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
+
+  version = version;
 
   constructor(
     private inAppBrowser: InAppBrowser,
