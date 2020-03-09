@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform, ModalController, ToastController } from '@ionic/angular';
+import { Platform, ModalController, ToastController, AlertController } from '@ionic/angular';
 
+import { Storage } from '@ionic/storage';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
+import { STORAGE_SECRET_KEY, DEFAULT_SECRET_KEY } from '../../../../environments/storage.key';
 import * as aesjs from 'aes-js';
 
 @Component({
@@ -20,16 +22,18 @@ export class SecureMessageComponent implements OnInit {
   };
 
   mode: 'encrypt' | 'decrypt';
-  secretKey = 'thesecretkey1234';
+  secretKey: string;
   encryptedHex = '';
 
   constructor(
     private platform: Platform,
     private modalCtrl: ModalController,
     private toastCtrl: ToastController,
+    private alertCtrl: AlertController,
     private clipboard: Clipboard,
     private appAvailability: AppAvailability,
     private inAppBrowser: InAppBrowser,
+    private storage: Storage,
   ) { }
 
   ngOnInit() {
@@ -43,10 +47,50 @@ export class SecureMessageComponent implements OnInit {
     };
 
     this.mode = 'encrypt';
+
+    this.storage.get(STORAGE_SECRET_KEY).then(key => {
+      if (key) {
+        this.secretKey = key;
+      } else {
+        this.secretKey = DEFAULT_SECRET_KEY;
+        this.storage.set(STORAGE_SECRET_KEY, DEFAULT_SECRET_KEY);
+      }
+    });
   }
 
   async goBack() {
     return await this.modalCtrl.dismiss();
+  }
+
+  async presentAlertPrompt() {
+    const alert = await this.alertCtrl.create({
+      header: 'Change secret key',
+      subHeader: 'Current key: ' + this.secretKey,
+      message: '16 characters',
+      mode: 'md',
+      inputs: [
+        {
+          name: 'key',
+          id: 'key',
+          placeholder: 'Secret key',
+          type: 'text',
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Ok',
+          handler: (data) => {
+            return this.changeSecretKey(data);
+          }
+        }
+      ]
+    });
+
+    return await alert.present();
   }
 
   async notify(message: string) {
@@ -118,5 +162,19 @@ export class SecureMessageComponent implements OnInit {
         }
       );
     }
+  }
+
+  changeSecretKey(data): boolean {
+    const newkey: string = data.key.trim();
+    if (newkey.length !== 16) {
+      this.notify('Secret key must contain 16 characters!');
+      return false;
+    }
+
+    this.alertCtrl.dismiss();
+    this.storage.set(STORAGE_SECRET_KEY, newkey).then(() => {
+      this.notify('Success');
+    });
+    return true;
   }
 }

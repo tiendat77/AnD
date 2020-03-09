@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
+import { STORAGE_LANGUAGE } from '../../environments/storage.key';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class LanguageService {
   initialize() {
     this.translate.setDefaultLang('vi');
 
-    this.storage.get('LANGUAGE').then(lang => {
+    this.storage.get(STORAGE_LANGUAGE).then(lang => {
       if (lang) {
         this.translate.use(lang);
         this.currentLanguage.next(lang);
@@ -28,10 +29,9 @@ export class LanguageService {
     });
   }
 
-  public changeLanguage(event: any) {
-    const lang = event.detail.value.toString();
+  public changeLanguage(lang: string) {
     this.translate.use(lang);
-    this.storage.set('LANGUAGE', lang);
+    this.storage.set(STORAGE_LANGUAGE, lang);
     this.currentLanguage.next(lang);
   }
 }

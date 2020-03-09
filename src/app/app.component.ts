@@ -64,6 +64,11 @@ export class AppComponent {
     this.languageService.initialize();
   }
 
+  changeLanguage(event: any) {
+    const lang = event.detail.value.toString();
+    this.languageService.changeLanguage(lang);
+  }
+
   showTutorial() {
     this.menu.enable(false);
     this.storage.set(STORAGE_TUTORIAL, false);

@@ -53,7 +53,7 @@
           <ion-item>
             <ion-select interface="popover" mode="md"
                         [value]="languageService.currentLanguage | async"
-                        (ionChange)="languageService.changeLanguage($event)">
+                        (ionChange)="changeLanguage($event)">
               <ion-select-option value="vi">Vietnamese</ion-select-option>
               <ion-select-option value="en">English</ion-select-option>
             </ion-select>

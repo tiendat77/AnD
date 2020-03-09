@@ -3,4 +3,6 @@ export const STORAGE_THEME = 'AND2.THEME';
 export const STORAGE_TUTORIAL = 'AND2.DID_TUTORIAL';
 export const STORAGE_START_DATE = 'AND2.START_DATE';
 export const STORAGE_END_DATE = 'AND2.END_DATE';
-export const START_SECRET_KEY = 'AND2.SECRET_KEY';
+export const STORAGE_SECRET_KEY = 'AND2.SECRET_KEY';
+export const DEFAULT_START_DATE = '2013-09-30';
+export const DEFAULT_SECRET_KEY = 'thesecretkey1997';

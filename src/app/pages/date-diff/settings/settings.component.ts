@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
+import { DEFAULT_START_DATE } from '../../../../environments/storage.key';
 import { DateDiffService } from '../date-diff.service';
 
 @Component({
@@ -27,7 +28,7 @@ export class SettingsComponent implements OnInit {
   }
 
   reset() {
-    const startDate = '2013-09-30';
+    const startDate = DEFAULT_START_DATE;
     this.diffService.model.startDate = startDate;
 
     const now = new Date();
