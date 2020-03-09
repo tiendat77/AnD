@@ -1,8 +1,13 @@
 # AnD2 TODO LIST
 
+# Secure message
+  [ ] view: input form, output form
+  [ ] import aesjs
+  [x] copy - paste function
+
 # About
   [x] Add click event -> open browser
-  [ ] Fix share via...
+  [x] Fix share via...
   [x] Fix goBack if there is no previous page
 
 # Date-diff

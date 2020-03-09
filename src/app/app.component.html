@@ -22,7 +22,10 @@
         </ion-list> -->
 
         <ion-list lines="none">
-          <ion-list-header>Navigate</ion-list-header>
+          <ion-list-header>
+            <ion-icon slot="start" name="navigate-outline"></ion-icon>
+            <ion-label>{{ 'MENU.NAVIGATE' | translate }}</ion-label>
+          </ion-list-header>
 
           <ion-menu-toggle autoHide="false" *ngFor="let page of pages; let i = index">
             <ion-item [routerLink]="page.url"
@@ -36,29 +39,39 @@
         </ion-list>
 
         <ion-list lines="none">
-          <ion-list-header>Tutorial</ion-list-header>
-          <ion-menu-toggle autoHide="false">
-            <ion-item button (click)="showTutorial()" detail="false">
-              <ion-icon slot="start" name="tv"></ion-icon>
-            <ion-label>Show Tutorial</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          <ion-item (click)="showTutorial()" detail="false">
+            <ion-icon slot="start" name="tv"></ion-icon>
+            <ion-label>{{ 'MENU.TUTORIAL' | translate }}</ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ion-list lines="none">
+          <ion-list-header>
+            <ion-icon slot="start" name="globe-outline"></ion-icon>
+            <ion-label>{{ 'MENU.LANGUAGE' | translate }}</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-select interface="popover" mode="md"
+                        [value]="languageService.currentLanguage | async"
+                        (ionChange)="languageService.changeLanguage($event)">
+              <ion-select-option value="vi">Vietnamese</ion-select-option>
+              <ion-select-option value="en">English</ion-select-option>
+            </ion-select>
+          </ion-item>
         </ion-list>
 
         <ion-list lines="none">
           <ion-item>
-            <ion-label (click)="dark=!dark">Dark Theme</ion-label>
+            <ion-label (click)="dark=!dark">{{ 'MENU.THEME' | translate }}</ion-label>
             <ion-toggle (ionChange)="toggleTheme()" [(ngModel)]="dark"></ion-toggle>
           </ion-item>
         </ion-list>
 
         <ion-list lines="none">
-          <ion-menu-toggle autoHide="false">
-            <ion-item (click)="showAbout()" detail="false">
-              <ion-icon slot="start" name="information-circle-outline"></ion-icon>
-              <ion-label>About</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          <ion-item (click)="showAbout()" detail="false">
+            <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+            <ion-label>{{ 'MENU.ABOUT' | translate }}</ion-label>
+          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>

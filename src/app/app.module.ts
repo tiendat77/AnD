@@ -1,18 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LanguageService } from './providers/language.service';
 
 @NgModule({
   declarations: [
@@ -25,13 +34,23 @@ import { AppRoutingModule } from './app-routing.module';
     IonicStorageModule.forRoot(),
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
   ],
   providers: [
+    LanguageService,
     StatusBar,
     SplashScreen,
     InAppBrowser,
     Clipboard,
+    AppAvailability,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

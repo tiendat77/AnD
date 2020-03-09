@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
 
 import { Page } from './interfaces/page';
+import { LanguageService } from './providers/language.service';
 
 @Component({
   selector: 'app-root',
@@ -36,11 +37,12 @@ export class AppComponent {
 
   constructor(
     private platform: Platform,
+    private router: Router,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private router: Router,
     private storage: Storage,
     private menu: MenuController,
+    public languageService: LanguageService
   ) {
     this.initializeApp();
   }
@@ -54,6 +56,8 @@ export class AppComponent {
         if (res) { this.dark = res; }
       });
     });
+
+    this.languageService.initialize();
   }
 
   showTutorial() {
