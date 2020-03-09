@@ -17,19 +17,18 @@ export class DateDiffService {
 
   initialize() {
     this.model = { startDate: '', endDate: '', days: '', dmy: '' };
+    const now = new Date();
 
     this.storage.get('DATE_DIFF_START').then(start => {
       if (start) {
         this.model.startDate = start;
       } else {
-        const now = new Date();
         const startDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
         this.model.startDate = startDate;
         this.storage.set('DATE_DIFF_START', startDate);
       }
     });
 
-    const now = new Date();
     const endDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
     this.model.endDate = endDate;
     this.storage.set('DATE_DIFF_END', endDate);

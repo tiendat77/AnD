@@ -8,23 +8,15 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-label></ion-label>
-      </ion-col>
-    </ion-row>
+  <ion-list lines="full">
+    <ion-item (click)="openSecureMessage()">
+      <ion-icon slot="start" name="logo-github"></ion-icon>
+      <ion-label>Secure Message</ion-label>
+    </ion-item>
 
-    <ion-row>
-      <ion-col>
-        <ion-button (click)="do()">DO</ion-button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <ion-button (click)="openSecureMessage()">Secure Message</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-item>
+      <ion-icon slot="start" name="logo-ionic"></ion-icon>
+      <ion-label>DO</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
