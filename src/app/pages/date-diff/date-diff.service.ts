@@ -6,7 +6,9 @@ export class DateDiffService {
 
   model: {
     startDate: string,
-    endDate: string
+    endDate: string,
+    daysDiff: string,
+    dmyDiff: string,
   };
 
   constructor(
@@ -14,7 +16,7 @@ export class DateDiffService {
   ) { }
 
   initialize() {
-    this.model = { startDate: '', endDate: '' };
+    this.model = { startDate: '', endDate: '', daysDiff: '', dmyDiff: '' };
 
     this.storage.get('DATE_DIFF_START').then(start => {
       if (start) {

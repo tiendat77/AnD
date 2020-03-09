@@ -14,9 +14,14 @@
 
 <ion-content fullscreen>
   <ion-grid>
-    <ion-row>
+    <ion-row style="text-align: center;">
       <ion-col>
-        <ion-label>{{ days }}</ion-label>
+        <ion-label>{{ diff }}</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <ion-button (click)="show()">Check</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
