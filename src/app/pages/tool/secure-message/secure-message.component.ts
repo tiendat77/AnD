@@ -107,8 +107,16 @@ export class SecureMessageComponent implements OnInit {
 
     if (this.platform.is('ios')) {
       this.notify(`Not support ios`);
+      return;
     } else if (this.platform.is('android')) {
-      this.inAppBrowser.create('android-app://' + packageName, '_system');
+      this.appAvailability.check(packageName).then(
+        (yes: boolean) => {
+          this.inAppBrowser.create('android-app://' + packageName, '_system');
+        },
+        (no: boolean) => {
+          this.inAppBrowser.create('https://chat.zalo.me', '_system');
+        }
+      );
     }
   }
 }

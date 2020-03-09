@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { STORAGE_START_DATE, STORAGE_END_DATE } from '../../../environments/storage.key';
 
 @Injectable()
 export class DateDiffService {
@@ -19,19 +20,19 @@ export class DateDiffService {
     this.model = { startDate: '', endDate: '', days: '', dmy: '' };
     const now = new Date();
 
-    this.storage.get('DATE_DIFF_START').then(start => {
+    this.storage.get(STORAGE_START_DATE).then(start => {
       if (start) {
         this.model.startDate = start;
       } else {
         const startDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
         this.model.startDate = startDate;
-        this.storage.set('DATE_DIFF_START', startDate);
+        this.storage.set(STORAGE_START_DATE, startDate);
       }
     });
 
     const endDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
     this.model.endDate = endDate;
-    this.storage.set('DATE_DIFF_END', endDate);
+    this.storage.set(STORAGE_END_DATE, endDate);
 
     // this.storage.get('DATE_DIFF_END').then(end => {
     //   if (end) {
@@ -44,13 +45,13 @@ export class DateDiffService {
   changeDate(type: string, value: string) {
     if (type === 'start') {
       console.log('start', value);
-      this.storage.set('DATE_DIFF_START', value);
+      this.storage.set(STORAGE_START_DATE, value);
       return;
     }
 
     if (type === 'end') {
       console.log('end', value);
-      this.storage.set('DATE_DIFF_END', value);
+      this.storage.set(STORAGE_END_DATE, value);
       return;
     }
   }
