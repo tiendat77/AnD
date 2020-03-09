@@ -11,12 +11,16 @@ import { SettingsComponent } from './settings/settings.component';
 })
 export class DateDiffPage implements OnInit {
 
+  days: string;
+
   constructor(
     private modalController: ModalController,
     public diffService: DateDiffService
   ) { }
 
   ngOnInit() {
+    this.diffService.initialize();
+    this.days = '';
   }
 
   async openSettings() {
@@ -26,6 +30,9 @@ export class DateDiffPage implements OnInit {
     });
 
     return await settings.present();
+  }
+
+  calDiff() {
   }
 
 }

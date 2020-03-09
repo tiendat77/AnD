@@ -16,18 +16,21 @@ export class SettingsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.diffService.model = {
-      startDate: '2013-09-30',
-      endDate: '2020-03-08'
-    };
   }
 
-  async goBack() {
+  async done() {
+    this.diffService.changeDate('start', this.diffService.model.startDate);
+    this.diffService.changeDate('end', this.diffService.model.endDate);
+
     return await this.modalController.dismiss();
   }
 
   reset() {
-  }
+    const startDate = '2013-09-30';
+    this.diffService.model.startDate = startDate;
 
-  // TODO: change start date, end date
+    const now = new Date();
+    const endDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+    this.diffService.model.endDate = endDate;
+  }
 }

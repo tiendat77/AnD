@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-title>Settings</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="goBack()">
+      <ion-button (click)="done()">
         <ion-label>Done</ion-label>
       </ion-button>
     </ion-buttons>
@@ -21,8 +21,7 @@
       <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
                     displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" mode="md"
                     min="2010" max="2090"
-                    [value]="diffService.model.startDate"
-                    (ionChange)="diffService.changeDate($event, 'start')">
+                    [(ngModel)]="diffService.model.startDate">
       </ion-datetime>
     </ion-item>
     <ion-item>
@@ -30,8 +29,7 @@
       <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
                     displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" mode="md"
                     min="2010" max="2090"
-                    [value]="diffService.model.endDate"
-                    (ionChange)="diffService.changeDate($event, 'end')">
+                    [(ngModel)]="diffService.model.endDate">
       </ion-datetime>
     </ion-item>
   </ion-list>
