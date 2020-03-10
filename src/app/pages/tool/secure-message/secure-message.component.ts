@@ -66,13 +66,12 @@ export class SecureMessageComponent implements OnInit {
     const alert = await this.alertCtrl.create({
       header: 'Change secret key',
       subHeader: 'Current key: ' + this.secretKey,
-      message: '16 characters',
       mode: 'md',
       inputs: [
         {
           name: 'key',
           id: 'key',
-          placeholder: 'Secret key',
+          placeholder: '16 characters',
           type: 'text',
         }
       ],
