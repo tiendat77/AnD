@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Platform, MenuController } from '@ionic/angular';
+import { Platform, MenuController, PopoverController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
@@ -10,6 +10,7 @@ import { version } from '../environments/version';
 import { STORAGE_THEME, STORAGE_TUTORIAL } from '../environments/storage.key';
 
 import { LanguageService } from './providers/language.service';
+import { LanguageComponent } from './modals/language/language.component';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private storage: Storage,
-    private menu: MenuController,
+    private menuCtrl: MenuController,
+    private popoverCtrl: PopoverController,
     public languageService: LanguageService
   ) {
     this.initializeApp();
@@ -46,13 +48,17 @@ export class AppComponent {
     this.languageService.initialize();
   }
 
-  changeLanguage(event: any) {
-    const lang = event.detail.value.toString();
-    this.languageService.changeLanguage(lang);
+  async showLanguages() {
+    const popover = await this.popoverCtrl.create({
+      component: LanguageComponent,
+      translucent: true,
+    });
+
+    return await popover.present();
   }
 
   showTutorial() {
-    this.menu.enable(false);
+    this.menuCtrl.enable(false);
     this.storage.set(STORAGE_TUTORIAL, false);
     this.router.navigateByUrl('/tutorial');
   }

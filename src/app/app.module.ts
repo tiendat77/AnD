@@ -21,13 +21,17 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LanguageComponent } from './modals/language/language.component';
 import { LanguageService } from './providers/language.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LanguageComponent
   ],
-  entryComponents: [],
+  entryComponents: [
+    LanguageComponent
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

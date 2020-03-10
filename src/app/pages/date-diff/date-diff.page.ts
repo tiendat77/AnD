@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { DateDiffService } from './date-diff.service';
-import { SettingsComponent } from './settings/settings.component';
+import { SettingsComponent } from '../../modals/settings/settings.component';
 
 @Component({
   selector: 'app-date-diff',

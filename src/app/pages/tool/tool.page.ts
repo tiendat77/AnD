@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { SecureMessageComponent } from './secure-message/secure-message.component';
+import { SecureMessageComponent } from '../../modals/secure-message/secure-message.component';
 
 @Component({
   selector: 'app-tool',

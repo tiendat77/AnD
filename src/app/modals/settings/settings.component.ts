@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { DEFAULT_START_DATE } from '../../../../environments/storage.key';
-import { DateDiffService } from '../date-diff.service';
+import { DEFAULT_START_DATE } from '../../../environments/storage.key';
+import { DateDiffService } from '../../pages/date-diff/date-diff.service';
 
 @Component({
   selector: 'app-settings',

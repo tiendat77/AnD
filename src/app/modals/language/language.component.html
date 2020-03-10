@@ -1,0 +1,6 @@
+<ion-list lines="none">
+  <ion-item *ngFor="let lang of languages" (click)="changeLanguage(lang)">
+    <ion-icon slot="start" src="assets/img/{{ lang.flag }}.svg"></ion-icon>
+    <ion-label>{{ lang.display }}</ion-label>
+  </ion-item>
+</ion-list>

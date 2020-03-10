@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ToolPageRoutingModule } from './tool-routing.module';
 
 import { ToolPage } from './tool.page';
-import { SecureMessageComponent } from './secure-message/secure-message.component';
+import { SecureMessageComponent } from '../../modals/secure-message/secure-message.component';
 
 @NgModule({
   imports: [

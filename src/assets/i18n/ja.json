@@ -1,21 +1,21 @@
 {
   "MENU": {
-    "NAVIGATE": "Điều hướng",
-    "TUTORIAL": "Giới thiệu",
-    "LANGUAGE": "Ngôn ngữ",
-    "THEME": "Chủ đề",
-    "ABOUT": "Thông tin"
+    "NAVIGATE": "航行する",
+    "TUTORIAL": "概論",
+    "LANGUAGE": "言語",
+    "THEME": "暗いテーマ",
+    "ABOUT": "情報"
   },
 
   "LUNAR": {
-    "TITLE": "Âm lịch"
+    "TITLE": "陰暦"
   },
 
   "DATEDIFF": {
-    "TITLE": "Đếm ngày"
+    "TITLE": "日付の差分"
   },
 
   "TOOL": {
-    "TITLE": "Công cụ"
+    "TITLE": "工具"
   }
 }

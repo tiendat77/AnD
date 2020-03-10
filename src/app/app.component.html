@@ -63,17 +63,11 @@
 
         <ion-list lines="none">
           <ion-list-header>
-            <ion-icon slot="start" name="globe-outline"></ion-icon>
             <ion-label>{{ 'MENU.LANGUAGE' | translate }}</ion-label>
           </ion-list-header>
-          <ion-item>
-            <ion-select interface="popover" mode="md"
-                        [value]="languageService.currentLanguage | async"
-                        (ionChange)="changeLanguage($event)">
-              <ion-select-option value="vi">Vietnamese</ion-select-option>
-              <ion-select-option value="en">English</ion-select-option>
-              <ion-select-option value="ja">Japanese</ion-select-option>
-            </ion-select>
+          <ion-item button (click)="showLanguages()">
+            <ion-icon slot="start" name="globe-outline"></ion-icon>
+            <ion-label>{{languageService.currentLanguage | async}}</ion-label>
           </ion-item>
         </ion-list>
 

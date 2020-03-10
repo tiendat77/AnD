@@ -6,7 +6,7 @@ import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
-import { STORAGE_SECRET_KEY, DEFAULT_SECRET_KEY } from '../../../../environments/storage.key';
+import { STORAGE_SECRET_KEY, DEFAULT_SECRET_KEY } from '../../../environments/storage.key';
 import * as aesjs from 'aes-js';
 
 @Component({
