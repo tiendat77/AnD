@@ -58,7 +58,6 @@ export class AppComponent {
   }
 
   showTutorial() {
-    this.menuCtrl.enable(false);
     this.storage.set(STORAGE_TUTORIAL, false);
     this.router.navigateByUrl('/tutorial');
   }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { STORAGE_TUTORIAL } from '../../../environments/storage.key';
 
@@ -14,7 +13,6 @@ export class TutorialPage implements OnInit {
   showSkip = true;
 
   constructor(
-    private menu: MenuController,
     private router: Router,
     private storage: Storage
   ) { }
@@ -31,8 +29,6 @@ export class TutorialPage implements OnInit {
   }
 
   startApp() {
-    this.menu.enable(true);
-
     this.router
       .navigateByUrl('tabs/lunar', { replaceUrl: true })
       .then(() => this.storage.set(STORAGE_TUTORIAL, true));

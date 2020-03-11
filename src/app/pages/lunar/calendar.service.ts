@@ -13,8 +13,6 @@ export class CalendarService {
   month: number;
   weeks: any[];
 
-  weekDays: string[] = [ 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN' ];
-
   model = {
     selectedCalendar: '',
     selectedDate: new Date(),

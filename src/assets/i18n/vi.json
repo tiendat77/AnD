@@ -8,7 +8,16 @@
   },
 
   "LUNAR": {
-    "TITLE": "Âm lịch"
+    "TITLE": "Âm lịch",
+    "WEEKDAYS": {
+      "MONDAY": "H",
+      "TUESDAY": "B",
+      "WEDNESDAY": "T",
+      "THURSDAY": "N",
+      "FRIDAY": "S",
+      "SATURDAY": "B",
+      "SUNDAY": "CN"
+    }
   },
 
   "DATEDIFF": {

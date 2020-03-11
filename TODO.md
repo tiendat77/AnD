@@ -4,12 +4,13 @@
   [ ] view: input form, output form
   [x] import aesjs
   [x] copy - paste function
-  [ ] get secret key from storage
+  [x] get secret key from storage
 
 # About
   [x] Add click event -> open browser
   [x] Fix share via...
   [x] Fix goBack if there is no previous page
+  [ ] Translate
 
 # Date-diff
   [ ] View
@@ -17,8 +18,10 @@
 ## Date-diff setting
   [x] Reset - Settings - Done
   [x] Select start - end date -> storage
+  [ ] translate
+  [ ] view
 
 # App
   [x] Dark theme -> storage
-  [ ] Beautify app menu
+  [x] Beautify app menu
 

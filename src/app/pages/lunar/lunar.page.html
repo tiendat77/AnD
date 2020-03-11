@@ -38,9 +38,39 @@
           </ion-row>
 
           <ion-row class="week-header">
-            <ion-col *ngFor="let weekDay of calendarService.weekDays">
+            <ion-col>
               <ion-label color="medium">
-                {{ weekDay }}
+                {{ 'LUNAR.WEEKDAYS.MONDAY' | translate }}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label color="medium">
+                {{ 'LUNAR.WEEKDAYS.TUESDAY' | translate }}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label color="medium">
+                {{ 'LUNAR.WEEKDAYS.WEDNESDAY' | translate }}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label color="medium">
+                {{ 'LUNAR.WEEKDAYS.THURSDAY' | translate }}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label color="medium">
+                {{ 'LUNAR.WEEKDAYS.FRIDAY' | translate }}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label color="medium">
+                {{ 'LUNAR.WEEKDAYS.SATURDAY' | translate }}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label color="medium">
+                {{ 'LUNAR.WEEKDAYS.SUNDAY' | translate }}
               </ion-label>
             </ion-col>
           </ion-row>
@@ -52,7 +82,7 @@
               <ion-label [class.now]="date.isToday"
                          [class.selected]="date.solar.date === selectedDate.solar.date && date.solar.month === selectedDate.solar.month"
                          *ngIf="!date.isDisabled">
-                <ion-text>{{ date.solar.date }}</ion-text>
+                <ion-text><span>{{ date.solar.date }}</span></ion-text>
               </ion-label>
             </ion-col>
           </ion-row>
