@@ -3,14 +3,14 @@ import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { STORAGE_LANGUAGE } from '../../environments/storage.key';
-import { LANGUAGES } from '../interfaces/language';
+import { LANGUAGES, Language } from '../interfaces/language';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
 
-  currentLanguage = new BehaviorSubject('');
+  currentLanguage: BehaviorSubject<Language> = new BehaviorSubject({ value: 'vi', display: 'Vietnamese' });
 
   constructor(
     private storage: Storage,
@@ -22,18 +22,18 @@ export class LanguageService {
 
     this.storage.get(STORAGE_LANGUAGE).then(lang => {
       if (lang) {
-        const languageName = LANGUAGES.filter(d => d.value === lang)[0].display;
+        const selectedLanguage = LANGUAGES.filter(d => d.value === lang)[0];
+        this.currentLanguage.next(selectedLanguage);
         this.translate.use(lang);
-        this.currentLanguage.next(languageName);
       } else {
-        this.changeLanguage('vi', 'Vietnamese');
+        this.changeLanguage({ value: 'vi', display: 'Vietnamese' });
       }
     });
   }
 
-  public changeLanguage(lang: string, name: string) {
-    this.translate.use(lang);
-    this.storage.set(STORAGE_LANGUAGE, lang);
-    this.currentLanguage.next(name);
+  public changeLanguage(lang: Language) {
+    this.translate.use(lang.value);
+    this.storage.set(STORAGE_LANGUAGE, lang.value);
+    this.currentLanguage.next(lang);
   }
 }

@@ -55,19 +55,12 @@
         </ion-list>
 
         <ion-list lines="none">
-          <ion-item button (click)="showTutorial()" detail="false">
-            <ion-icon slot="start" name="tv"></ion-icon>
-            <ion-label>{{ 'MENU.TUTORIAL' | translate }}</ion-label>
-          </ion-item>
-        </ion-list>
-
-        <ion-list lines="none">
           <ion-list-header>
             <ion-label>{{ 'MENU.LANGUAGE' | translate }}</ion-label>
           </ion-list-header>
           <ion-item button (click)="showLanguages()">
             <ion-icon slot="start" name="globe-outline"></ion-icon>
-            <ion-label>{{languageService.currentLanguage | async}}</ion-label>
+            <ion-label>{{ (languageService.currentLanguage | async).display }}</ion-label>
           </ion-item>
         </ion-list>
 
@@ -75,6 +68,13 @@
           <ion-item>
             <ion-label (click)="dark=!dark">{{ 'MENU.THEME' | translate }}</ion-label>
             <ion-toggle (ionChange)="toggleTheme()" [(ngModel)]="dark"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list lines="none">
+          <ion-item button (click)="showTutorial()" detail="false">
+            <ion-icon slot="start" name="tv"></ion-icon>
+            <ion-label>{{ 'MENU.TUTORIAL' | translate }}</ion-label>
           </ion-item>
         </ion-list>
 

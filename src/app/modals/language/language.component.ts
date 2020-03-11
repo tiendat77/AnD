@@ -22,7 +22,7 @@ export class LanguageComponent implements OnInit {
   }
 
   changeLanguage(lang: Language) {
-    this.languageService.changeLanguage(lang.value, lang.display);
+    this.languageService.changeLanguage(lang);
     this.popoverCtrl.dismiss();
   }
 
