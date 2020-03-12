@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { STORAGE_START_DATE, STORAGE_END_DATE } from '../../../environments/storage.key';
+import { STORAGE_START_DATE, STORAGE_END_DATE, DEFAULT_START_DATE } from '../../../environments/storage.key';
 
 @Injectable()
 export class DateDiffService {
@@ -18,18 +18,17 @@ export class DateDiffService {
 
   initialize() {
     this.model = { startDate: '', endDate: '', days: '', dmy: '' };
-    const now = new Date();
 
     this.storage.get(STORAGE_START_DATE).then(start => {
       if (start) {
         this.model.startDate = start;
       } else {
-        const startDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
-        this.model.startDate = startDate;
-        this.storage.set(STORAGE_START_DATE, startDate);
+        this.model.startDate = DEFAULT_START_DATE;
+        this.storage.set(STORAGE_START_DATE, DEFAULT_START_DATE);
       }
     });
 
+    const now = new Date();
     const endDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
     this.model.endDate = endDate;
     this.storage.set(STORAGE_END_DATE, endDate);

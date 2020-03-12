@@ -27,7 +27,6 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private storage: Storage,
-    private menuCtrl: MenuController,
     private popoverCtrl: PopoverController,
     public languageService: LanguageService
   ) {

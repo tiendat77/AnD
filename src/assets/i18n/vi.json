@@ -26,5 +26,11 @@
 
   "TOOL": {
     "TITLE": "Công cụ"
+  },
+
+  "ABOUT": {
+    "APP": "",
+    "AUTHOR": "",
+    "SHARE": ""
   }
 }

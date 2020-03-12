@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { DateDiffService } from './date-diff.service';
-import { SettingsComponent } from '../../modals/settings/settings.component';
+import { DateDiffSettingsComponent } from '../../modals/date-diff-settings/date-diff-settings.component';
 
 @Component({
   selector: 'app-date-diff',
@@ -26,7 +26,7 @@ export class DateDiffPage implements OnInit {
 
   async openSettings() {
     const settings = await this.modalController.create({
-      component: SettingsComponent,
+      component: DateDiffSettingsComponent,
       swipeToClose: true
     });
 

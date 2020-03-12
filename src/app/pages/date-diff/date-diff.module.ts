@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DateDiffPageRoutingModule } from './date-diff-routing.module';
 
 import { DateDiffPage } from './date-diff.page';
-import { SettingsComponent } from '../../modals/settings/settings.component';
+import { DateDiffSettingsComponent } from '../../modals/date-diff-settings/date-diff-settings.component';
 import { DateDiffService } from './date-diff.service';
 
 @NgModule({
@@ -21,9 +21,9 @@ import { DateDiffService } from './date-diff.service';
   ],
   declarations: [
     DateDiffPage,
-    SettingsComponent
+    DateDiffSettingsComponent
   ],
   providers: [DateDiffService],
-  entryComponents: [SettingsComponent]
+  entryComponents: [DateDiffSettingsComponent]
 })
 export class DateDiffPageModule {}

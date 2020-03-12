@@ -5,11 +5,11 @@ import { DEFAULT_START_DATE } from '../../../environments/storage.key';
 import { DateDiffService } from '../../pages/date-diff/date-diff.service';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss'],
+  selector: 'date-diff-settings',
+  templateUrl: './date-diff-settings.component.html',
+  styleUrls: ['./date-diff-settings.component.scss'],
 })
-export class SettingsComponent implements OnInit {
+export class DateDiffSettingsComponent implements OnInit {
 
   constructor(
     private modalController: ModalController,

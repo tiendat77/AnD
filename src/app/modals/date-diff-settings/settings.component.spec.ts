@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SecureMessageComponent } from './secure-message.component';
+import { DateDiffSettingsComponent } from './date-diff-settings.component';
 
-describe('SecureMessageComponent', () => {
-  let component: SecureMessageComponent;
-  let fixture: ComponentFixture<SecureMessageComponent>;
+describe('SettingsComponent', () => {
+  let component: DateDiffSettingsComponent;
+  let fixture: ComponentFixture<DateDiffSettingsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SecureMessageComponent ],
+      declarations: [ DateDiffSettingsComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SecureMessageComponent);
+    fixture = TestBed.createComponent(DateDiffSettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
