@@ -17,7 +17,19 @@
       "FRIDAY": "FRI",
       "SATURDAY": "SAT",
       "SUNDAY": "SUN"
-    }
+    },
+    "WEEKDAYS_FULL": {
+      "MONDAY": "Monday",
+      "TUESDAY": "Tuesday",
+      "WEDNESDAY": "Wednesday",
+      "THURSDAY": "Thursday",
+      "FRIDAY": "Friday",
+      "SATURDAY": "Saturday",
+      "SUNDAY": "Sunday"
+    },
+    "YEAR": "Year",
+    "MONTH": "Month",
+    "DAY": "Day"
   },
 
   "DATEDIFF": {
@@ -26,5 +38,23 @@
 
   "TOOL": {
     "TITLE": "Tool"
+  },
+
+  "ABOUT": {
+    "TITLE": "About",
+    "APP": {
+      "VERSION": "Version",
+      "SOURCE": "Source code"
+    },
+    "AUTHOR": {
+      "HEADER": "Author",
+      "GITHUB": "Follow on GitHub",
+      "EMAIL": "Email"
+    },
+    "SHARE": {
+      "HEADER": "Share & Feedback",
+      "SHARE_TO": "Share to your friends",
+      "FEEDBACK": "Feedback"
+    }
   }
 }

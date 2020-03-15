@@ -27,6 +27,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private storage: Storage,
+    private menuCtrl: MenuController,
     private popoverCtrl: PopoverController,
     public languageService: LanguageService
   ) {
@@ -62,7 +63,7 @@ export class AppComponent {
   }
 
   showAbout() {
-    this.router.navigateByUrl('/about');
+    this.router.navigateByUrl('/about', { replaceUrl: true });
   }
 
   toggleTheme() {

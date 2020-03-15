@@ -11,7 +11,8 @@
   <ion-grid class="calendar-wrapper">
     <ion-row class="solar">
       <ion-col>
-        <ion-grid>
+        <ion-grid (swiperight)="calendarService.previousMonth()"
+                  (swipeleft)="calendarService.nextMonth()">
           <ion-row class="toolbar">
             <ion-col>
               <ion-buttons style="justify-content: center;">
@@ -38,52 +39,23 @@
           </ion-row>
 
           <ion-row class="week-header">
-            <ion-col>
+            <ion-col *ngFor="let weekday of weekdays">
               <ion-label color="medium">
-                {{ 'LUNAR.WEEKDAYS.MONDAY' | translate }}
-              </ion-label>
-            </ion-col>
-            <ion-col>
-              <ion-label color="medium">
-                {{ 'LUNAR.WEEKDAYS.TUESDAY' | translate }}
-              </ion-label>
-            </ion-col>
-            <ion-col>
-              <ion-label color="medium">
-                {{ 'LUNAR.WEEKDAYS.WEDNESDAY' | translate }}
-              </ion-label>
-            </ion-col>
-            <ion-col>
-              <ion-label color="medium">
-                {{ 'LUNAR.WEEKDAYS.THURSDAY' | translate }}
-              </ion-label>
-            </ion-col>
-            <ion-col>
-              <ion-label color="medium">
-                {{ 'LUNAR.WEEKDAYS.FRIDAY' | translate }}
-              </ion-label>
-            </ion-col>
-            <ion-col>
-              <ion-label color="medium">
-                {{ 'LUNAR.WEEKDAYS.SATURDAY' | translate }}
-              </ion-label>
-            </ion-col>
-            <ion-col>
-              <ion-label color="medium">
-                {{ 'LUNAR.WEEKDAYS.SUNDAY' | translate }}
+                {{ 'LUNAR.WEEKDAYS.' + weekday | translate }}
               </ion-label>
             </ion-col>
           </ion-row>
 
           <ion-row *ngFor="let week of calendarService.weeks" class="weeks">
-            <ion-col [class.disabled]="date.isDisabled"
+            <ion-col class="date" [class.disabled]="date.isDisabled"
                      *ngFor="let date of week; trackBy: trackById"
                      (click)="selectDate(date)">
-              <ion-label [class.now]="date.isToday"
-                         [class.selected]="date.solar.date === selectedDate.solar.date && date.solar.month === selectedDate.solar.month"
-                         *ngIf="!date.isDisabled">
-                <ion-text><span>{{ date.solar.date }}</span></ion-text>
-              </ion-label>
+              <div [class.now]="date.isToday">
+                <span *ngIf="!date.isDisabled"
+                      [class.selected]="date.solar.date === selectedDate.solar.date && date.solar.month === selectedDate.solar.month">
+                  {{ date.solar.date }}
+                </span>
+              </div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -96,7 +68,7 @@
           <ion-row class="month-year">
             <ion-col>
               <ion-label>
-                Tháng {{ selectedDate.solar.month + 1 }} năm {{ selectedDate.solar.year }}
+                {{ 'LUNAR.MONTH' | translate }} {{ selectedDate.solar.month + 1 }}
               </ion-label>
             </ion-col>
           </ion-row>
@@ -109,17 +81,38 @@
 
           <ion-row>
             <ion-col>
-              <ion-label class="weekday">{{ selectedDate.solar.weekday }}</ion-label>
+              <ion-label class="weekday">
+                {{ 'LUNAR.WEEKDAYS_FULL.' + selectedDate.solar.weekday | translate}}
+              </ion-label>
             </ion-col>
           </ion-row>
 
           <!-- Lunar Calendar -->
           <ion-row class="lunar-field">
             <ion-col>
-              <ion-grid style="margin: -5px;">
+              <ion-grid>
                 <ion-row>
                   <ion-col>
-                    <ion-label>Tháng {{ selectedDate.lunar.month + 1 }}</ion-label>
+                    <ion-label class="header">{{ 'LUNAR.YEAR' | translate }}</ion-label>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-label class="lunar-year">{{ selectedDate.lunar.year }}</ion-label>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-label>{{ selectedDate.lunar.lunarYear }}</ion-label>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+            <ion-col>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-label class="header">{{ 'LUNAR.DAY' | translate }}</ion-label>
                   </ion-col>
                 </ion-row>
                 <ion-row>
@@ -129,22 +122,26 @@
                 </ion-row>
                 <ion-row>
                   <ion-col>
-                    <ion-label>Năm {{ selectedDate.lunar.lunarYear }}</ion-label>
+                    <ion-label>{{ selectedDate.lunar.lunarDate }}</ion-label>
                   </ion-col>
                 </ion-row>
               </ion-grid>
             </ion-col>
-
             <ion-col>
-              <ion-grid style="margin: -5px;">
+              <ion-grid>
                 <ion-row>
                   <ion-col>
-                    <ion-label>Tháng {{ selectedDate.lunar.lunarMonth }}</ion-label>
+                    <ion-label class="header">{{ 'LUNAR.MONTH' | translate }}</ion-label>
                   </ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col>
-                    <ion-label>Ngày {{ selectedDate.lunar.lunarDate }}</ion-label>
+                    <ion-label class="lunar-month">{{ selectedDate.lunar.month + 1 }}</ion-label>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-label>{{ selectedDate.lunar.lunarMonth }}</ion-label>
                   </ion-col>
                 </ion-row>
               </ion-grid>

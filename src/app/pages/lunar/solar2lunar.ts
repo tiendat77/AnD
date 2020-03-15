@@ -2,7 +2,7 @@ import { LunarDate, SolarDate } from '../../interfaces/date';
 import * as moment from 'moment';
 import 'moment-lunar';
 
-export const WEEKDAY: string[] = [ 'Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy', ];
+export const WEEKDAY: string[] = [ 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY' ];
 const CAN: string[] = [ 'Canh', 'Tân', 'Nhâm', 'Quý', 'Giáp', 'Ất', 'Bính', 'Đinh', 'Mậu', 'Kỷ', ];
 const CHI: string[] = [ 'Thân', 'Dậu', 'Tuất', 'Hợi', 'Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tị', 'Ngọ', 'Mùi', ];
 
@@ -28,7 +28,7 @@ export function getLunarDate(solarDate: Date): LunarDate {
     year: lunar.year(),
     lunarYear: lunarYear(lunar.year()),
     lunarMonth: lunarMonth(lunar.year(), lunar.month()),
-    lunarDate: lunarDate(),
+    lunarDate: lunarDate(year, month, date),
   };
 }
 
@@ -45,9 +45,15 @@ function lunarMonth(year: number, month: number): string {
   return can + ' ' + chi;
 }
 
-function lunarDate(): string {
-  const can = 'Chua';
-  const chi = 'Biet Tinh';
+function lunarDate(year: number, month: number, date: number): string {
+  const fixMonth = ((14 - month) - (14 - month) % 12) / 12;
+  const jy = year + 4800 - fixMonth;
+  const jm = month + 12 * fixMonth - 3;
+  const jd = date + ((153 * jm + 2) - ((153 * jm + 2) % 5)) / 5
+            + 365 * jy + (jy - (jy % 4)) / 4 - (jy - jy % 100) / 100 + (jy - (jy % 400)) / 400 - 32045;
+
+  const can = CAN[fix10((jd + 2) % 10)];
+  const chi = CHI[fix12((jd + 10) % 12)];
   return can + ' ' + chi;
 }
 

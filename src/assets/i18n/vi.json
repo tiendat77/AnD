@@ -10,14 +10,26 @@
   "LUNAR": {
     "TITLE": "Âm lịch",
     "WEEKDAYS": {
-      "MONDAY": "H",
-      "TUESDAY": "B",
-      "WEDNESDAY": "T",
-      "THURSDAY": "N",
-      "FRIDAY": "S",
-      "SATURDAY": "B",
+      "MONDAY": "T2",
+      "TUESDAY": "T3",
+      "WEDNESDAY": "T4",
+      "THURSDAY": "T5",
+      "FRIDAY": "T6",
+      "SATURDAY": "T7",
       "SUNDAY": "CN"
-    }
+    },
+    "WEEKDAYS_FULL": {
+      "MONDAY": "Thứ 2",
+      "TUESDAY": "Thứ 3",
+      "WEDNESDAY": "Thứ 4",
+      "THURSDAY": "Thứ 5",
+      "FRIDAY": "Thứ 6",
+      "SATURDAY": "Thứ 7",
+      "SUNDAY": "Chủ nhật"
+    },
+    "YEAR": "Năm",
+    "MONTH": "Tháng",
+    "DAY": "Ngày"
   },
 
   "DATEDIFF": {
@@ -29,8 +41,20 @@
   },
 
   "ABOUT": {
-    "APP": "",
-    "AUTHOR": "",
-    "SHARE": ""
+    "TITLE": "Thông tin",
+    "APP": {
+      "VERSION": "Phiên bản",
+      "SOURCE": "Mã nguồn"
+    },
+    "AUTHOR": {
+      "HEADER": "Tác giả",
+      "GITHUB": "Theo dõi trang GitHub",
+      "EMAIL": "Email"
+    },
+    "SHARE": {
+      "HEADER": "Chia sẻ và phản hồi",
+      "SHARE_TO": "Chia sẻ tới bạn bè",
+      "FEEDBACK": "Phản hồi"
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IDate } from 'src/app/interfaces/date';
-import { getLunarDate, getSolarDate } from './solar2lunar';
+import { getLunarDate, getSolarDate, WEEKDAY } from './solar2lunar';
 import { CalendarService } from './calendar.service';
 
 @Component({
@@ -12,6 +12,7 @@ import { CalendarService } from './calendar.service';
 export class LunarPage implements OnInit {
 
   selectedDate: IDate;
+  weekdays: string[] = WEEKDAY;
 
   constructor(
     public calendarService: CalendarService

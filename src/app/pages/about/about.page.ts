@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ActionSheetController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ActionSheetController, ToastController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
 
@@ -15,18 +16,18 @@ export class AboutPage implements OnInit {
   version = version;
 
   constructor(
-    private inAppBrowser: InAppBrowser,
-    private clipboard: Clipboard,
-    private navCtrl: NavController,
     private actionSheetCtrl: ActionSheetController,
     private toastCtrl: ToastController,
+    private router: Router,
+    private inAppBrowser: InAppBrowser,
+    private clipboard: Clipboard,
   ) { }
 
   ngOnInit() {
   }
 
-  async goBack() {
-    return await this.navCtrl.pop();
+  goBack() {
+    this.router.navigateByUrl('tabs/lunar', { replaceUrl: true });
   }
 
   openGitHub(type: string = 'project' || 'person') {
