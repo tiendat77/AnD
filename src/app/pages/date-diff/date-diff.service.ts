@@ -68,7 +68,7 @@ export class DateDiffService {
     const months = Math.round((daysDiff % 365) / 30);
     const days = Math.round((daysDiff % 365) % 30);
 
-    this.model.days = daysDiff + ' days';
+    this.model.days = daysDiff.toString();
     this.model.dmy = years + ' years ' + months + ' months ' + days + ' days';
   }
 }
