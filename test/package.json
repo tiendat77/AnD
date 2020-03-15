@@ -1,0 +1,23 @@
+{
+  "name": "and2",
+  "version": "1.0.0",
+  "description": "Test my ionic android app",
+  "main": "and2.js",
+  "scripts": {
+    "test": "./get && ./push",
+    "start": "./get && ./unzip && node and2.js",
+    "dev": "nodemon and2.js"
+  },
+  "author": "TienDatHuynh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

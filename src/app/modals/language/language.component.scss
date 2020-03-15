@@ -1,0 +1,11 @@
+ion-item {
+  ion-icon[name="checkmark"] {
+    font-size: 32px;
+    color: #0c93bd;
+    display: none;
+  }
+
+  ion-icon[name="checkmark"].active {
+    display: initial;
+  }
+}

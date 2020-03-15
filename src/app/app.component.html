@@ -2,7 +2,7 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content">
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="secondary">
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
@@ -22,34 +22,75 @@
         </ion-list> -->
 
         <ion-list lines="none">
-          <ion-list-header>Navigate</ion-list-header>
+          <ion-list-header>
+            <ion-icon slot="start" name="navigate-outline"></ion-icon>
+            <ion-label>{{ 'MENU.NAVIGATE' | translate }}</ion-label>
+          </ion-list-header>
 
-          <ion-menu-toggle autoHide="false" *ngFor="let page of pages; let i = index">
-            <ion-item [routerLink]="page.url"
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="tabs/lunar"
                       routerLinkActive="active"
                       routerDirection="root"
                       detail="false">
-              <ion-icon slot="start" [name]="page.icon"></ion-icon>
-              <ion-label>{{ page.title }}</ion-label>
+              <ion-icon slot="start" src="assets/img/lunar-calendar.svg"></ion-icon>
+              <ion-label>{{ 'LUNAR.TITLE' | translate }}</ion-label>
+            </ion-item>
+
+            <ion-item routerLink="tabs/date-diff"
+                      routerLinkActive="active"
+                      routerDirection="root"
+                      detail="false">
+              <ion-icon slot="start" name="calendar"></ion-icon>
+              <ion-label>{{ 'DATEDIFF.TITLE' | translate }}</ion-label>
+            </ion-item>
+
+            <ion-item routerLink="tabs/tool"
+                      routerLinkActive="active"
+                      routerDirection="root"
+                      detail="false">
+              <ion-icon slot="start" name="hammer"></ion-icon>
+              <ion-label>{{ 'TOOL.TITLE' | translate }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
 
         <ion-list lines="none">
-          <ion-list-header>Tutorial</ion-list-header>
+          <ion-list-header>
+            <ion-label>{{ 'MENU.LANGUAGE' | translate }}</ion-label>
+          </ion-list-header>
+          <ion-item button (click)="showLanguages()">
+            <ion-icon slot="start" name="globe-outline"></ion-icon>
+            <ion-label>{{ (languageService.currentLanguage | async).display }}</ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label (click)="dark=!dark">{{ 'MENU.THEME' | translate }}</ion-label>
+            <ion-toggle (ionChange)="toggleTheme()" [(ngModel)]="dark"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list lines="none">
           <ion-menu-toggle autoHide="false">
             <ion-item button (click)="showTutorial()" detail="false">
               <ion-icon slot="start" name="tv"></ion-icon>
-            <ion-label>Show Tutorial</ion-label>
+              <ion-label>{{ 'MENU.TUTORIAL' | translate }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
 
-        <ion-list>
-          <ion-item>
-            <ion-label>Dark Theme</ion-label>
-            <ion-toggle [(ngModel)]="dark"></ion-toggle>
-          </ion-item>
+        <ion-list lines="none">
+          <ion-menu-toggle autoHide="false">
+            <ion-item (click)="showAbout()"
+                      routerLink="about"
+                      routerLinkActive="active"
+                      routerDirection="root"
+                      detail="false">
+              <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+              <ion-label>{{ 'MENU.ABOUT' | translate }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
       </ion-content>
     </ion-menu>

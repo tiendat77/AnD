@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { SecureMessageComponent } from '../../modals/secure-message/secure-message.component';
 
 @Component({
   selector: 'app-tool',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController
+  ) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  async openSecureMessage() {
+    const secureMessage = await this.modalCtrl.create({
+      component: SecureMessageComponent,
+      swipeToClose: true,
+    });
+
+    await secureMessage.present();
   }
 
 }

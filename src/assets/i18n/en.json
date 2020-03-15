@@ -1,0 +1,60 @@
+{
+  "MENU": {
+    "NAVIGATE": "Navigate",
+    "TUTORIAL": "Tutorial",
+    "LANGUAGE": "Language",
+    "THEME": "Theme",
+    "ABOUT": "About"
+  },
+
+  "LUNAR": {
+    "TITLE": "Lunar calendar",
+    "WEEKDAYS": {
+      "MONDAY": "MON",
+      "TUESDAY": "TUE",
+      "WEDNESDAY": "WED",
+      "THURSDAY": "THU",
+      "FRIDAY": "FRI",
+      "SATURDAY": "SAT",
+      "SUNDAY": "SUN"
+    },
+    "WEEKDAYS_FULL": {
+      "MONDAY": "Monday",
+      "TUESDAY": "Tuesday",
+      "WEDNESDAY": "Wednesday",
+      "THURSDAY": "Thursday",
+      "FRIDAY": "Friday",
+      "SATURDAY": "Saturday",
+      "SUNDAY": "Sunday"
+    },
+    "YEAR": "Year",
+    "MONTH": "Month",
+    "DAY": "Day"
+  },
+
+  "DATEDIFF": {
+    "TITLE": "Date diff"
+  },
+
+  "TOOL": {
+    "TITLE": "Tool"
+  },
+
+  "ABOUT": {
+    "TITLE": "About",
+    "APP": {
+      "VERSION": "Version",
+      "SOURCE": "Source code"
+    },
+    "AUTHOR": {
+      "HEADER": "Author",
+      "GITHUB": "Follow on GitHub",
+      "EMAIL": "Email"
+    },
+    "SHARE": {
+      "HEADER": "Share & Feedback",
+      "SHARE_TO": "Share to your friends",
+      "FEEDBACK": "Feedback"
+    }
+  }
+}

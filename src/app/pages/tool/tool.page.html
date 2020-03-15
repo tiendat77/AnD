@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>tool</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'TOOL.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
+  <ion-list lines="full">
+    <ion-item (click)="openSecureMessage()">
+      <ion-icon slot="start" name="logo-github"></ion-icon>
+      <ion-label>Secure Message</ion-label>
+    </ion-item>
 
+    <ion-item>
+      <ion-icon slot="start" name="logo-ionic"></ion-icon>
+      <ion-label>DO</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

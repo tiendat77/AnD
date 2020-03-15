@@ -1,0 +1,125 @@
+.calendar-wrapper {
+  .solar {
+    text-align: center;
+    min-height: 320px;
+
+    .toolbar {
+      width: 100%;
+      text-align: center;
+
+      .picker {
+        margin-left: -16px;
+      }
+    }
+
+    .week-header {
+      color: rgba(#000000, .5);
+    }
+
+    .weeks {
+
+      .date {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        min-width: 28px;
+        min-height: 28px;
+        position: relative;
+      }
+
+      .now {
+        color: #36b5ef;
+      }
+
+      .selected {
+        color: #fff;
+        border-radius: 50%;
+        background-color: #36b5ef;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        padding: 8px;
+        min-width: 32px;
+        min-height: 32px;
+      }
+
+      .disabled {
+        pointer-events: none;
+      }
+    }
+  }
+
+  .lunar {
+    border: 1px solid rgba(#92949c, 0.6);
+    border-radius: 6px;
+    background-image: url('../../../assets/img/lotus_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    width: 70%;
+    min-width: 290px;
+    margin: auto;
+
+    ion-grid {
+      padding: 0;
+    }
+
+    .month-year {
+      color: #515151;
+      border-radius: 6px 6px 0 0;
+      margin-bottom: 1px;
+      text-transform: uppercase;
+    }
+
+    .date {
+      color: #8ebbff;
+      font-size: 60px;
+      font-weight: bold;
+    }
+
+    .weekday {
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #47a9ab;
+    }
+
+    .lunar-field {
+      color: #515151;
+      border-radius: 6px;
+      background-color: #bcd7ff52;
+      margin-top: 10px;
+      white-space: nowrap;
+
+      .header {
+        color: #515151;
+        text-transform: uppercase;
+      }
+
+      ion-row {
+        padding: 0;
+      }
+
+      .lunar-date {
+        font-size: 24px;
+        color: #03a9f4;
+        font-weight: bold;
+      }
+
+      .lunar-year {
+        font-size: 24px;
+        color: #3e2d27;
+        font-weight: bold;
+      }
+
+      .lunar-month {
+        font-size: 24px;
+        color: #03a9f4;
+        font-weight: bold;
+      }
+    }
+  }
+}

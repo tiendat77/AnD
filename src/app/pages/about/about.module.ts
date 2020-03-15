@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { AboutPageRoutingModule } from './about-routing.module';
-
 import { AboutPage } from './about.page';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { AboutPage } from './about.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     AboutPageRoutingModule
   ],
   declarations: [AboutPage]

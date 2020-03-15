@@ -3,18 +3,26 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
+import { DateDiffSettingsComponent } from '../../modals/date-diff-settings/date-diff-settings.component';
 import { DateDiffPageRoutingModule } from './date-diff-routing.module';
-
 import { DateDiffPage } from './date-diff.page';
+import { DateDiffService } from './date-diff.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DateDiffPageRoutingModule
+    DateDiffPageRoutingModule,
+    TranslateModule.forChild()
   ],
-  declarations: [DateDiffPage]
+  declarations: [
+    DateDiffPage,
+    DateDiffSettingsComponent
+  ],
+  providers: [DateDiffService],
+  entryComponents: [DateDiffSettingsComponent]
 })
 export class DateDiffPageModule {}

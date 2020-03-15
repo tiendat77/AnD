@@ -1,0 +1,60 @@
+{
+  "MENU": {
+    "NAVIGATE": "航行する",
+    "TUTORIAL": "概論",
+    "LANGUAGE": "言語",
+    "THEME": "暗いテーマ",
+    "ABOUT": "情報"
+  },
+
+  "LUNAR": {
+    "TITLE": "陰暦",
+    "WEEKDAYS": {
+      "MONDAY": "月",
+      "TUESDAY": "火",
+      "WEDNESDAY": "水",
+      "THURSDAY": "木",
+      "FRIDAY": "金",
+      "SATURDAY": "土",
+      "SUNDAY": "日"
+    },
+    "WEEKDAYS_FULL": {
+      "MONDAY": "Thứ 2",
+      "TUESDAY": "Thứ 3",
+      "WEDNESDAY": "Thứ 4",
+      "THURSDAY": "Thứ 5",
+      "FRIDAY": "Thứ 6",
+      "SATURDAY": "Thứ 7",
+      "SUNDAY": "Chủ nhật"
+    },
+    "YEAR": "年",
+    "MONTH": "月",
+    "DAY": "日"
+  },
+
+  "DATEDIFF": {
+    "TITLE": "日付の差分"
+  },
+
+  "TOOL": {
+    "TITLE": "工具"
+  },
+
+  "ABOUT": {
+    "TITLE": "情報",
+    "APP": {
+      "VERSION": "改作",
+      "SOURCE": "ソースコード"
+    },
+    "AUTHOR": {
+      "HEADER": "著者",
+      "GITHUB": "GitHub でフォローする",
+      "EMAIL": "Email"
+    },
+    "SHARE": {
+      "HEADER": "共有 そして 饋還",
+      "SHARE_TO": "友達と共有する",
+      "FEEDBACK": "饋還"
+    }
+  }
+}

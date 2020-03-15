@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="reset()">
+        <ion-label>Default</ion-label>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="done()">
+        <ion-label>Done</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-label>Start date</ion-label>
+      <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
+                    displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" mode="md"
+                    min="2010" max="2090"
+                    [(ngModel)]="diffService.model.startDate">
+      </ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>End date</ion-label>
+      <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
+                    displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" mode="md"
+                    min="2010" max="2090"
+                    [(ngModel)]="diffService.model.endDate">
+      </ion-datetime>
+    </ion-item>
+  </ion-list>
+</ion-content>

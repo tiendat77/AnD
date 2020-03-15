@@ -1,9 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>date-diff</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'DATEDIFF.TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openSettings()">
+        <ion-icon slot="icon-only" name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <ion-label *ngIf="days">{{ diffService.model.days }}</ion-label>
+        <ion-label *ngIf="!days">{{ diffService.model.dmy }}</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <ion-button (click)="show()">Check</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
