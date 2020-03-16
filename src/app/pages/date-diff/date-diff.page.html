@@ -36,8 +36,19 @@
           </div>
         </div>
 
-        <div class="days" *ngIf="!days">
-          <span>{{ diffService.model.dmy }}</span>
+        <div class="days" *ngIf="!days && isCalculated">
+          <div>
+            <span>in love</span>
+          </div>
+          <div style="font-size: 24px;">
+            <span>{{ diffService.model.dmy.years }} years</span>
+          </div>
+          <div style="font-size: 24px;">
+            <span>{{ diffService.model.dmy.months }} months</span>
+          </div>
+          <div style="font-size: 24px;">
+            <span>{{ diffService.model.dmy.days }} days</span>
+          </div>
         </div>
       </div>
 

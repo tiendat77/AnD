@@ -19,13 +19,13 @@
       "SUNDAY": "日"
     },
     "WEEKDAYS_FULL": {
-      "MONDAY": "Thứ 2",
-      "TUESDAY": "Thứ 3",
-      "WEDNESDAY": "Thứ 4",
-      "THURSDAY": "Thứ 5",
-      "FRIDAY": "Thứ 6",
-      "SATURDAY": "Thứ 7",
-      "SUNDAY": "Chủ nhật"
+      "MONDAY": "月曜",
+      "TUESDAY": "火曜",
+      "WEDNESDAY": "水曜",
+      "THURSDAY": "木曜",
+      "FRIDAY": "金曜",
+      "SATURDAY": "土曜",
+      "SUNDAY": "日曜"
     },
     "YEAR": "年",
     "MONTH": "月",

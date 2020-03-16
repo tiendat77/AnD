@@ -64,7 +64,7 @@
 
     <ion-row class="lunar">
       <ion-col style="padding: 0;">
-        <ion-grid>
+        <ion-grid style="background-color: #c3c3c359;">
           <ion-row class="month-year">
             <ion-col>
               <ion-label>
@@ -82,7 +82,15 @@
           <ion-row>
             <ion-col>
               <ion-label class="weekday">
-                {{ 'LUNAR.WEEKDAYS_FULL.' + selectedDate.solar.weekday | translate}}
+                {{ 'LUNAR.WEEKDAYS_FULL.' + selectedDate.solar.weekday | translate }}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-label class="quote">
+                {{ quoteOfDay }}
               </ion-label>
             </ion-col>
           </ion-row>
