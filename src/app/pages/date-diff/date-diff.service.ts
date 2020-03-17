@@ -64,7 +64,6 @@ export class DateDiffService {
     const years = Math.floor(diffDays / 365);
     const months = Math.floor((diffDays % 365) / 30);
     const days = Math.floor((diffDays % 365) % 30);
-    console.log({years, months, days})
 
     this.model.days = diffDays.toString();
     this.model.dmy = { days, months, years };

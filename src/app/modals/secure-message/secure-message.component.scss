@@ -1,12 +1,7 @@
-.input {
+.text-input {
   border: 1px solid rgba(#212121, .5);
   border-radius: 3px;
-}
-
-.output {
-  pointer-events: none;
-  border: 1px solid rgba(#212121, .5);
-  border-radius: 3px;
+  padding: 0 10px;
 }
 
 ion-col {

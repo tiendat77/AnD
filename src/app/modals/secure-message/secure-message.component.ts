@@ -23,7 +23,6 @@ export class SecureMessageComponent implements OnInit {
 
   mode: 'encrypt' | 'decrypt';
   secretKey: string;
-  encryptedHex = '';
 
   constructor(
     private platform: Platform,
@@ -101,11 +100,6 @@ export class SecureMessageComponent implements OnInit {
     return await toast.present();
   }
 
-  copyText() {
-    this.clipboard.copy(this.model.inMessage);
-    this.notify('Copied to clipboard');
-  }
-
   // From: https://github.com/ricmoo/aes-js
   encrypt() {
     const key = new TextEncoder().encode(this.secretKey);
@@ -116,8 +110,8 @@ export class SecureMessageComponent implements OnInit {
     const aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
     const encryptedBytes = aesCtr.encrypt(textBytes);
 
-    this.encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
-    console.log(this.encryptedHex);
+    const encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
+    this.model.outMessage = encryptedHex;
   }
 
   decrypt() {
@@ -130,13 +124,18 @@ export class SecureMessageComponent implements OnInit {
     const decryptedBytes = aesCtr.decrypt(encryptedBytes);
 
     const decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
-    console.log(decryptedText);
+    this.model.outMessage = decryptedText;
+  }
+
+  copyText() {
+    this.clipboard.copy(this.model.outMessage);
+    this.notify('Copied to clipboard');
   }
 
   pasteText() {
     this.clipboard.paste().then(
       (resolve: string) => {
-        this.model.outMessage = resolve;
+        this.model.inMessage = resolve;
         this.notify('Pasted from clipboard');
       },
       (reject: string) => {
