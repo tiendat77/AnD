@@ -29,7 +29,33 @@
     },
     "YEAR": "Năm",
     "MONTH": "Tháng",
-    "DAY": "Ngày"
+    "DAY": "Ngày",
+    "HEAVENLY_STEMS": {
+      "JIA": "Giáp",
+      "YI": "Ất",
+      "BING": "Bính",
+      "DING": "Đinh",
+      "WU": "Mậu",
+      "JI": "Kỷ",
+      "GENG": "Canh",
+      "XIN": "Tân",
+      "REN": "Nhâm",
+      "GUI": "Quý"
+    },
+    "EARTHLY_BRANCHES": {
+      "ZI": "Tý",
+      "CHOU": "Sửu",
+      "YIN": "Dần",
+      "MAO": "Mão",
+      "CHEN": "Thìn",
+      "SI": "Tị",
+      "WU": "Ngọ",
+      "WEI": "Mùi",
+      "SHEN": "Thân",
+      "YOU": "Dậu",
+      "XU": "Tuất",
+      "HAI": "Hợi"
+    }
   },
 
   "DATEDIFF": {

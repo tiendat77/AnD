@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { STORAGE_START_DATE, STORAGE_END_DATE, DEFAULT_START_DATE } from '../../../environments/storage.key';
+import { STORAGE_START_DATE, STORAGE_UNTIL_DATE, DEFAULT_START_DATE } from '../../../environments/storage.key';
 import { DateDiffModel } from 'src/app/interfaces/date-diff';
+import * as moment from 'moment';
 
 @Injectable()
 export class DateDiffService {
@@ -18,9 +19,9 @@ export class DateDiffService {
       untilDate: '',
       days: '',
       dmy: {
-        days: '',
-        months: '',
-        years: ''
+        days: 0,
+        months: 0,
+        years: 0
       }
     };
 
@@ -34,9 +35,9 @@ export class DateDiffService {
     });
 
     const now = new Date();
-    const endDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
-    this.model.untilDate = endDate;
-    this.storage.set(STORAGE_END_DATE, endDate);
+    const untilDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+    this.model.untilDate = untilDate;
+    this.storage.set(STORAGE_UNTIL_DATE, untilDate);
   }
 
   changeDate(type: string, value: string) {
@@ -46,9 +47,9 @@ export class DateDiffService {
       return;
     }
 
-    if (type === 'end') {
-      console.log('end', value);
-      this.storage.set(STORAGE_END_DATE, value);
+    if (type === 'until') {
+      console.log('until', value.slice(0, 10));
+      this.storage.set(STORAGE_UNTIL_DATE, value.slice(0, 10));
       return;
     }
   }
@@ -56,17 +57,16 @@ export class DateDiffService {
   calculateDiff() {
     if (this.model.startDate.length === 0) { return; }
 
-    const startDate = new Date(this.model.startDate);
-    const endDate = new Date(this.model.untilDate);
+    const startDate = moment(this.model.startDate, 'YYYY/MM/DD');
+    const untilDate = moment(this.model.untilDate, 'YYYY/MM/DD');
 
-    const timestamp = endDate.getTime() - startDate.getTime();
-    const daysDiff  = Math.round(timestamp / (24 * 60 * 60 * 1000));
+    const diffDays  = untilDate.diff(startDate, 'days');
+    const years = Math.floor(diffDays / 365);
+    const months = Math.floor((diffDays % 365) / 30);
+    const days = Math.floor((diffDays % 365) % 30);
+    console.log({years, months, days})
 
-    const years = Math.round(daysDiff / 365);
-    const months = Math.round((daysDiff % 365) / 30);
-    const days = Math.round((daysDiff % 365) % 30);
-
-    this.model.days = daysDiff.toString();
-    this.model.dmy = { days: days.toString(), months: months.toString(), years: years.toString() };
+    this.model.days = diffDays.toString();
+    this.model.dmy = { days, months, years };
   }
 }

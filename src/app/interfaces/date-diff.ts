@@ -3,8 +3,8 @@ export interface DateDiffModel {
   untilDate: string;
   days: string;
   dmy: {
-    days: string;
-    months: string;
-    years: string;
+    days: number;
+    months: number;
+    years: number;
   };
 }

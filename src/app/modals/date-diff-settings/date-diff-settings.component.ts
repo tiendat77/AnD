@@ -21,7 +21,7 @@ export class DateDiffSettingsComponent implements OnInit {
 
   async done() {
     this.diffService.changeDate('start', this.diffService.model.startDate);
-    this.diffService.changeDate('end', this.diffService.model.untilDate);
+    this.diffService.changeDate('until', this.diffService.model.untilDate);
     this.diffService.calculateDiff();
 
     return await this.modalController.dismiss();
@@ -32,7 +32,7 @@ export class DateDiffSettingsComponent implements OnInit {
     this.diffService.model.startDate = startDate;
 
     const now = new Date();
-    const endDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
-    this.diffService.model.untilDate = endDate;
+    const untilDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+    this.diffService.model.untilDate = untilDate;
   }
 }

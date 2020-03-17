@@ -111,7 +111,10 @@
                 </ion-row>
                 <ion-row>
                   <ion-col>
-                    <ion-label>{{ selectedDate.lunar.lunarYear }}</ion-label>
+                    <ion-label>
+                      {{ 'LUNAR.HEAVENLY_STEMS.' + selectedDate.lunar.lunarYear.can | translate }}
+                      {{ 'LUNAR.EARTHLY_BRANCHES.' + selectedDate.lunar.lunarYear.chi | translate }}
+                    </ion-label>
                   </ion-col>
                 </ion-row>
               </ion-grid>
@@ -130,7 +133,10 @@
                 </ion-row>
                 <ion-row>
                   <ion-col>
-                    <ion-label>{{ selectedDate.lunar.lunarDate }}</ion-label>
+                    <ion-label>
+                      {{ 'LUNAR.HEAVENLY_STEMS.' + selectedDate.lunar.lunarDate.can | translate }}
+                      {{ 'LUNAR.EARTHLY_BRANCHES.' + selectedDate.lunar.lunarDate.chi | translate }}
+                    </ion-label>
                   </ion-col>
                 </ion-row>
               </ion-grid>
@@ -149,7 +155,10 @@
                 </ion-row>
                 <ion-row>
                   <ion-col>
-                    <ion-label>{{ selectedDate.lunar.lunarMonth }}</ion-label>
+                    <ion-label>
+                      {{ 'LUNAR.HEAVENLY_STEMS.' + selectedDate.lunar.lunarMonth.can | translate }}
+                      {{ 'LUNAR.EARTHLY_BRANCHES.' + selectedDate.lunar.lunarMonth.chi | translate }}
+                    </ion-label>
                   </ion-col>
                 </ion-row>
               </ion-grid>

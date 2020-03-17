@@ -40,14 +40,17 @@
           <div>
             <span>in love</span>
           </div>
-          <div style="font-size: 24px;">
-            <span>{{ diffService.model.dmy.years }} years</span>
+          <div *ngIf="diffService.model.dmy.years">
+            <span style="font-size: 24px;">{{ diffService.model.dmy.years }}</span>
+            <span> years</span>
           </div>
-          <div style="font-size: 24px;">
-            <span>{{ diffService.model.dmy.months }} months</span>
+          <div *ngIf="diffService.model.dmy.months">
+            <span style="font-size: 24px;">{{ diffService.model.dmy.months }}</span>
+            <span> months</span>
           </div>
-          <div style="font-size: 24px;">
-            <span>{{ diffService.model.dmy.days }} days</span>
+          <div>
+            <span style="font-size: 24px;">{{ diffService.model.dmy.days }}</span>
+            <span> days</span>
           </div>
         </div>
       </div>
