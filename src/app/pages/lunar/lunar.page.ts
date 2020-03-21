@@ -27,7 +27,7 @@ export class LunarPage implements OnInit {
 
   initialize() {
     this.refresh();
-    this.getQuote();
+    // this.getQuote();
   }
 
   refresh() {

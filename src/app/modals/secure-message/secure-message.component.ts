@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform, ModalController, ToastController, AlertController } from '@ionic/angular';
+import { Platform, ModalController, PopoverController } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
@@ -7,6 +7,8 @@ import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { STORAGE_SECRET_KEY, DEFAULT_SECRET_KEY } from '../../../environments/storage.key';
+import { SecretKeyComponent } from '../secret-key/secret-key.component';
+import { NotifyService } from 'src/app/providers/notify.service';
 import * as aesjs from 'aes-js';
 
 @Component({
@@ -27,12 +29,12 @@ export class SecureMessageComponent implements OnInit {
   constructor(
     private platform: Platform,
     private modalCtrl: ModalController,
-    private toastCtrl: ToastController,
-    private alertCtrl: AlertController,
+    private popoverCtrl: PopoverController,
     private clipboard: Clipboard,
     private appAvailability: AppAvailability,
     private inAppBrowser: InAppBrowser,
     private storage: Storage,
+    private notifyService: NotifyService,
   ) { }
 
   ngOnInit() {
@@ -61,43 +63,23 @@ export class SecureMessageComponent implements OnInit {
     return await this.modalCtrl.dismiss();
   }
 
-  async presentAlertPrompt() {
-    const alert = await this.alertCtrl.create({
-      header: 'Change secret key',
-      subHeader: 'Current key: ' + this.secretKey,
-      mode: 'md',
-      inputs: [
-        {
-          name: 'key',
-          id: 'key',
-          placeholder: '16 characters',
-          type: 'text',
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        },
-        {
-          text: 'Ok',
-          handler: (data) => {
-            return this.changeSecretKey(data);
-          }
-        }
-      ]
+  async presentChangeKeyPrompt() {
+    const popover = await this.popoverCtrl.create({
+      component: SecretKeyComponent,
+      componentProps: {
+        key: this.secretKey,
+      }
     });
 
-    return await alert.present();
-  }
-
-  async notify(message: string) {
-    const toast = await this.toastCtrl.create({
-      message,
-      duration: 3000,
+    popover.onDidDismiss().then((res) => {
+      if (res.data && res.data.newKey) {
+        const newKey = res.data.newKey;
+        console.log('newle', newKey);
+        this.changeSecretKey(newKey);
+      }
     });
 
-    return await toast.present();
+    return await popover.present();
   }
 
   // From: https://github.com/ricmoo/aes-js
@@ -115,9 +97,16 @@ export class SecureMessageComponent implements OnInit {
   }
 
   decrypt() {
+    const encryptedHex = this.model.inMessage.trim();
+
+    for (const char of encryptedHex) {
+      if (!isHex(char)) {
+        return;
+      }
+    }
+
     const key = new TextEncoder().encode(this.secretKey);
 
-    const encryptedHex = this.model.inMessage.trim();
     const encryptedBytes = aesjs.utils.hex.toBytes(encryptedHex);
 
     const aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
@@ -125,21 +114,26 @@ export class SecureMessageComponent implements OnInit {
 
     const decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
     this.model.outMessage = decryptedText;
+
+    function isHex(h) {
+      var a = parseInt(h, 16);
+      return (a.toString(16) === h.toLowerCase());
+    }
   }
 
   copyText() {
     this.clipboard.copy(this.model.outMessage);
-    this.notify('Copied to clipboard');
+    this.notifyService.notify('Copied to clipboard');
   }
 
   pasteText() {
     this.clipboard.paste().then(
       (resolve: string) => {
         this.model.inMessage = resolve;
-        this.notify('Pasted from clipboard');
+        this.notifyService.notify('Pasted from clipboard');
       },
       (reject: string) => {
-        this.notify('Paste error: ' + reject);
+        this.notifyService.notify('Paste error: ' + reject);
       }
     );
   }
@@ -148,7 +142,7 @@ export class SecureMessageComponent implements OnInit {
     const packageName = 'com.zing.zalo';
 
     if (this.platform.is('ios')) {
-      this.notify(`Not support ios`);
+      this.notifyService.notify(`Not support ios`);
       return;
     } else if (this.platform.is('android')) {
       this.appAvailability.check(packageName).then(
@@ -162,17 +156,18 @@ export class SecureMessageComponent implements OnInit {
     }
   }
 
-  changeSecretKey(data): boolean {
-    const newkey: string = data.key.trim();
+  changeSecretKey(value): boolean {
+    const newkey: string = value.trim();
+
     if (newkey.length !== 16) {
-      this.notify('Secret key must contain 16 characters!');
       return false;
     }
 
-    this.alertCtrl.dismiss();
+    this.secretKey = newkey;
     this.storage.set(STORAGE_SECRET_KEY, newkey).then(() => {
-      this.notify('Success');
+      this.notifyService.notify('Success');
     });
+
     return true;
   }
 }

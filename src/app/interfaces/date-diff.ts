@@ -8,3 +8,10 @@ export interface DateDiffModel {
     years: number;
   };
 }
+
+export interface InfoModel {
+  name1: string;
+  name2: string;
+  avatar1: string;
+  avatar2: string;
+}

@@ -20,7 +20,11 @@ export class DateDiffPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.diffService.initialize();
+    this.diffService.initDate().then(() => {
+      this.show();
+    });
+
+    this.diffService.initAvatarAndName();
   }
 
   async openSettings() {

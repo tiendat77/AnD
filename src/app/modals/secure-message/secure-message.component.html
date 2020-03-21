@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-title>Secure Message</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="presentAlertPrompt()">
+      <ion-button (click)="presentChangeKeyPrompt()">
         <ion-icon name="key-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -15,20 +15,20 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-grid style="height: 100%;">
-    <ion-row style="height: 40%;">
-      <ion-grid style="height: 100%;">
+  <ion-grid>
+    <ion-row>
+      <ion-grid>
         <ion-row style="height: 45px;">
           <ion-col>
             <ion-item lines="none">
               <ion-label>Message to ...</ion-label>
-              <ion-button slot="end" (click)="pasteText()">
+              <ion-button slot="end" fill="clear" (click)="pasteText()">
                 <ion-icon name="document-outline"></ion-icon>
               </ion-button>
             </ion-item>
           </ion-col>
         </ion-row>
-        <ion-row style="height: calc(100% - 45px);">
+        <ion-row>
           <ion-col>
             <ion-item lines="none">
               <ion-textarea class="text-input" rows="10" cols="20" placeholder="Enter text here..." [(ngModel)]="model.inMessage"></ion-textarea>
@@ -38,48 +38,36 @@
       </ion-grid>
     </ion-row>
 
-    <ion-row style="height: 20%;">
-      <ion-col>
-        <ion-item lines="none">
-          <ion-label>Enctypt</ion-label>
-          <ion-button slot="end" (click)="encrypt()">
-            <ion-icon name="lock-closed-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
-      </ion-col>
+    <ion-row class="buttons">
+      <ion-button fill="clear" (click)="encrypt()">
+        <ion-label>Enctypt</ion-label>
+        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+      </ion-button>
 
-      <ion-col>
-        <ion-item lines="none">
-          <ion-label>Decrypt</ion-label>
-          <ion-button slot="end" (click)="decrypt()">
-            <ion-icon name="lock-open-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
-      </ion-col>
+      <ion-button fill="clear" (click)="decrypt()">
+        <ion-label>Decrypt</ion-label>
+        <ion-icon slot="end" name="lock-open-outline"></ion-icon>
+      </ion-button>
 
-      <ion-col>
-        <ion-item lines="none">
-          <ion-label>Chat</ion-label>
-          <ion-button slot="end" (click)="launchZalo()">
-            <ion-icon name="lock-open-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
-      </ion-col>
+      <ion-button fill="clear" (click)="launchZalo()">
+        <ion-label>Chat</ion-label>
+        <ion-icon slot="end" name="lock-open-outline"></ion-icon>
+      </ion-button>
     </ion-row>
 
-    <ion-row style="height: 40%;">
-      <ion-grid style="height: 100%;">
+    <ion-row>
+      <ion-grid>
         <ion-row style="height: 45px;">
           <ion-col>
             <ion-item lines="none">
               <ion-label>... message</ion-label>
-              <ion-button slot="end" (click)="copyText()">
+              <ion-button slot="end" fill="clear" (click)="copyText()">
                 <ion-icon name="copy-outline"></ion-icon>
               </ion-button>
             </ion-item>
           </ion-col>
         </ion-row>
-        <ion-row style="height: calc(100% - 45px);">
+        <ion-row>
           <ion-col>
             <ion-item lines="none">
               <ion-textarea class="text-input" rows="10" readonly placeholder="Output here..." [(ngModel)]="model.outMessage"></ion-textarea>

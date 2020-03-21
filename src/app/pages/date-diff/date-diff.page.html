@@ -23,23 +23,29 @@
   <div class="content">
     <div class="content-wrapper">
       <div class="top-wrapper" (click)="show()">
+        <div class="heart-box">
+          <div class="heart animate-topright"></div>
+          <div class="heart animate-bottomright"></div>
+          <div class="heart animate-topleft"></div>
+          <div class="heart animate-bottomleft"></div>
+          <div class="heart animate-up"></div>
+          <div class="heart animate-down"></div>
+          <div class="heart animate-left"></div>
+          <div class="heart animate-right"></div>
+        </div>
+
         <div class="circle"></div>
+
         <div class="days" *ngIf="days && isCalculated">
-          <div>
-            <span>in love</span>
-          </div>
+          <div>in love</div>
           <div style="font-size: 30px;">
             <span>{{ diffService.model.days }}</span>
           </div>
-          <div>
-            <span>days</span>
-          </div>
+          <div>days</div>
         </div>
 
         <div class="days" *ngIf="!days && isCalculated">
-          <div>
-            <span>in love</span>
-          </div>
+          <div>in love</div>
           <div *ngIf="diffService.model.dmy.years">
             <span style="font-size: 24px;">{{ diffService.model.dmy.years }}</span>
             <span> years</span>
@@ -60,7 +66,7 @@
           <ion-row>
             <ion-col>
               <ion-avatar style="margin: auto">
-                <img src="https://www.gravatar.com/avatar/10?d=monsterid&f=y">
+                <img [src]="diffService.infoModel.avatar1">
               </ion-avatar>
             </ion-col>
             <ion-col>
@@ -68,8 +74,17 @@
             </ion-col>
             <ion-col>
               <ion-avatar style="margin: auto">
-                <img src="https://www.gravatar.com/avatar/11?d=monsterid&f=y">
+                <img [src]="diffService.infoModel.avatar2">
               </ion-avatar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="name">
+              {{ diffService.infoModel.name1 }}
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col class="name">
+              {{ diffService.infoModel.name2 }}
             </ion-col>
           </ion-row>
         </ion-grid>
