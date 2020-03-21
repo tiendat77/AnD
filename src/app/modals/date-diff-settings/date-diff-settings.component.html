@@ -24,13 +24,38 @@
                     [(ngModel)]="diffService.model.startDate">
       </ion-datetime>
     </ion-item>
+
     <ion-item>
-      <ion-label>End date</ion-label>
+      <ion-label>Until date</ion-label>
       <ion-datetime class="picker" cancelText="CANCEL" doneText="OK"
                     displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" mode="md"
                     min="2010" max="2090"
-                    [(ngModel)]="diffService.model.endDate">
+                    [(ngModel)]="diffService.model.untilDate">
       </ion-datetime>
+    </ion-item>
+
+    <ion-item button (click)="presentChangeNamePrompt('name1')">
+      <ion-label>Name 1</ion-label>
+      <ion-label style="text-align: end;">{{ diffService.infoModel.name1 }}</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="presentChangeNamePrompt('name2')">
+      <ion-label>Name 2</ion-label>
+      <ion-label style="text-align: end;">{{ diffService.infoModel.name2 }}</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="presentImagePicker('avatar1')">
+      <ion-label>Avatar 1</ion-label>
+      <ion-avatar>
+        <img [src]="diffService.infoModel.avatar1">
+      </ion-avatar>
+    </ion-item>
+
+    <ion-item button (click)="presentImagePicker('avatar2')">
+      <ion-label>Avatar 2</ion-label>
+      <ion-avatar>
+        <img [src]="diffService.infoModel.avatar2">
+      </ion-avatar>
     </ion-item>
   </ion-list>
 </ion-content>

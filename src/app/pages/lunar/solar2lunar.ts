@@ -1,10 +1,10 @@
-import { LunarDate, SolarDate } from '../../interfaces/date';
+import { LunarDate, SolarDate, Lunar } from '../../interfaces/date';
 import * as moment from 'moment';
 import 'moment-lunar';
 
-export const WEEKDAY: string[] = [ 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY' ];
-const CAN: string[] = [ 'Canh', 'Tân', 'Nhâm', 'Quý', 'Giáp', 'Ất', 'Bính', 'Đinh', 'Mậu', 'Kỷ', ];
-const CHI: string[] = [ 'Thân', 'Dậu', 'Tuất', 'Hợi', 'Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tị', 'Ngọ', 'Mùi', ];
+export const WEEKDAY: string[] = [ 'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', ];
+const CAN: string[] = [ 'GENG', 'XIN', 'REN', 'GUI', 'JIA', 'YI', 'BING', 'DING', 'WU', 'JI', ];
+const CHI: string[] = [ 'SHEN', 'YOU', 'XU', 'HAI', 'ZI' , 'CHOU', 'YIN', 'MAO', 'CHEN', 'SI', 'WU', 'WEI', ];
 
 export function getSolarDate(solarDate: Date): SolarDate {
   const date = solarDate.getDate();
@@ -32,20 +32,20 @@ export function getLunarDate(solarDate: Date): LunarDate {
   };
 }
 
-function lunarYear(year: number): string {
+function lunarYear(year: number): Lunar {
   const can = CAN[year % 10];
   const chi = CHI[year % 12];
 
-  return can + ' ' + chi;
+  return { can, chi };
 }
 
-function lunarMonth(year: number, month: number): string {
+function lunarMonth(year: number, month: number): Lunar {
   const can = CAN[fix10((year * 12 + month + 8) % 10)];
   const chi = CHI[fix12(month + 6)];
-  return can + ' ' + chi;
+  return { can, chi };
 }
 
-function lunarDate(year: number, month: number, date: number): string {
+function lunarDate(year: number, month: number, date: number): Lunar {
   const fixMonth = ((14 - month) - (14 - month) % 12) / 12;
   const jy = year + 4800 - fixMonth;
   const jm = month + 12 * fixMonth - 3;
@@ -54,7 +54,7 @@ function lunarDate(year: number, month: number, date: number): string {
 
   const can = CAN[fix10((jd + 2) % 10)];
   const chi = CHI[fix12((jd + 10) % 12)];
-  return can + ' ' + chi;
+  return { can, chi };
 }
 
 function fix10(num: number): number {

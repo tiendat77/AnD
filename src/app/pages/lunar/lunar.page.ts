@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { IDate } from 'src/app/interfaces/date';
-import { getLunarDate, getSolarDate, WEEKDAY } from './solar2lunar';
+import { getLunarDate, getSolarDate } from './solar2lunar';
 import { CalendarService } from './calendar.service';
 
 @Component({
@@ -12,10 +13,12 @@ import { CalendarService } from './calendar.service';
 export class LunarPage implements OnInit {
 
   selectedDate: IDate;
-  weekdays: string[] = WEEKDAY;
+  weekdays: string[] = [ 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY', ];
+  quoteOfDay = '';
 
   constructor(
-    public calendarService: CalendarService
+    public calendarService: CalendarService,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -24,6 +27,7 @@ export class LunarPage implements OnInit {
 
   initialize() {
     this.refresh();
+    // this.getQuote();
   }
 
   refresh() {
@@ -50,6 +54,15 @@ export class LunarPage implements OnInit {
     }
 
     return item.solar.date;
+  }
+
+  getQuote() {
+    this.http.get('https://quotes.rest/qod').subscribe((res: any) => {
+      if (res && res.contents && res.contents.quotes) {
+        const quote = res.contents.quotes[0];
+        this.quoteOfDay = quote.quote + ' - ' + quote.author;
+      }
+    });
   }
 
 }

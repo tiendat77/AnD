@@ -25,3 +25,12 @@
   [x] Dark theme -> storage
   [x] Beautify app menu
 
+# Note
+
+Generate icon and splashscreen:
+```
+npm install -g cordova-res
+ionic cordova resources
+```
+
+adb install platforms/android/app/build/outputs/apk/debug/app-debug.apk

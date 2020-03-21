@@ -12,8 +12,7 @@ import { DateDiffSettingsComponent } from '../../modals/date-diff-settings/date-
 export class DateDiffPage implements OnInit {
 
   isCalculated = false;
-  days = true;
-  diff = '';
+  days = false;
 
   constructor(
     private modalController: ModalController,
@@ -21,7 +20,11 @@ export class DateDiffPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.diffService.initialize();
+    this.diffService.initDate().then(() => {
+      this.show();
+    });
+
+    this.diffService.initAvatarAndName();
   }
 
   async openSettings() {
@@ -35,6 +38,7 @@ export class DateDiffPage implements OnInit {
 
   show() {
     if (!this.isCalculated) {
+      this.isCalculated = true;
       this.diffService.calculateDiff();
     }
 

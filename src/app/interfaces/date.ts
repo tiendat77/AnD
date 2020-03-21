@@ -17,7 +17,12 @@ export interface LunarDate {
   year: number;
   month: number;
   date: number;
-  lunarYear?: string;
-  lunarMonth?: string;
-  lunarDate?: string;
+  lunarYear?: Lunar;
+  lunarMonth?: Lunar;
+  lunarDate?: Lunar;
+}
+
+export interface Lunar {
+  can: string;
+  chi: string;
 }

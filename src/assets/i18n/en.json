@@ -29,7 +29,33 @@
     },
     "YEAR": "Year",
     "MONTH": "Month",
-    "DAY": "Day"
+    "DAY": "Day",
+    "HEAVENLY_STEMS": {
+      "JIA": "Jia",
+      "YI": "Yi",
+      "BING": "Bing",
+      "DING": "Ding",
+      "WU": "Wu",
+      "JI": "Ji",
+      "GENG": "Geng",
+      "XIN": "Xin",
+      "REN": "Ren",
+      "GUI": "Gui"
+    },
+    "EARTHLY_BRANCHES": {
+      "ZI": "Zi",
+      "CHOU": "Chou",
+      "YIN": "Yin",
+      "MAO": "Mao",
+      "CHEN": "Chen",
+      "SI": "Si",
+      "WU": "Wu",
+      "WEI": "Wei",
+      "SHEN": "Shen",
+      "YOU": "You",
+      "XU": "Xu",
+      "HAI": "Hai"
+    }
   },
 
   "DATEDIFF": {

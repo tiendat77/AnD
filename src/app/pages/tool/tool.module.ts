@@ -9,6 +9,7 @@ import { ToolPageRoutingModule } from './tool-routing.module';
 
 import { ToolPage } from './tool.page';
 import { SecureMessageComponent } from '../../modals/secure-message/secure-message.component';
+import { SecretKeyComponent } from 'src/app/modals/secret-key/secret-key.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,11 @@ import { SecureMessageComponent } from '../../modals/secure-message/secure-messa
   declarations: [
     ToolPage,
     SecureMessageComponent,
+    SecretKeyComponent
   ],
-  entryComponents: [SecureMessageComponent]
+  entryComponents: [
+    SecureMessageComponent,
+    SecretKeyComponent
+  ]
 })
 export class ToolPageModule {}
