@@ -1,0 +1,32 @@
+.container {
+  align-items: center;
+  background-color: #ead8ce;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  h1 {
+    color: #fafafa;
+    font-weight: 900;
+    font-size: 50px;
+  }
+
+  h3 {
+    color: #cc9d9d;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .home {
+    color: #fafafa;
+    background-color: #e2c8b9;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #cea38a;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 18px 0;
+    padding: 10px;
+  }
+}

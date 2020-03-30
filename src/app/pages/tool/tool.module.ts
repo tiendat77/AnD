@@ -8,8 +8,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ToolPageRoutingModule } from './tool-routing.module';
 
 import { ToolPage } from './tool.page';
-import { SecureMessageComponent } from '../../modals/secure-message/secure-message.component';
-import { SecretKeyComponent } from 'src/app/modals/secret-key/secret-key.component';
 
 @NgModule({
   imports: [
@@ -19,14 +17,6 @@ import { SecretKeyComponent } from 'src/app/modals/secret-key/secret-key.compone
     ToolPageRoutingModule,
     TranslateModule.forChild()
   ],
-  declarations: [
-    ToolPage,
-    SecureMessageComponent,
-    SecretKeyComponent
-  ],
-  entryComponents: [
-    SecureMessageComponent,
-    SecretKeyComponent
-  ]
+  declarations: [ToolPage],
 })
 export class ToolPageModule {}
