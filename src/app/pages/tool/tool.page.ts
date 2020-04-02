@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SecureMessageComponent } from '../../modals/secure-message/secure-message.component';
-
 @Component({
   selector: 'app-tool',
   templateUrl: './tool.page.html',
