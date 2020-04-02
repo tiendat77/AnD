@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="end">
       <ion-button color="primary" (click)="startApp()" [hidden]="!showSkip">
-        <ion-label>Skip</ion-label>
+        <ion-label>{{ 'TUTORIAL.SKIP' | translate }}</ion-label>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -12,26 +12,25 @@
   <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="true">
     <ion-slide>
       <img src="assets/img/slide-1.svg" class="slide-image"/>
-      <h2 class="slide-title">Welcome to <b>AnD2</b></h2>
-      <p>The <b>AnD2</b> is a cross platform application to view Vietnamese lunar calendar and calculate date diff</p>
-      <p>A lunar calendar is a calendar based on the monthly cycles of the Moon's phases</p>
+      <h2 class="slide-title">{{ 'TUTORIAL.PAGE_1.HEADER' | translate }}</h2>
+      <p>{{ 'TUTORIAL.PAGE_1.CONTENT_1' | translate }}</p>
+      <p>{{ 'TUTORIAL.PAGE_1.CONTENT_2' | translate }}</p>
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img/slide-2.svg" class="slide-image" />
-      <h2 class="slide-title">Why <b>AnD2</b> created?</h2>
-      <p>The main purpose of <b>AnD2</b> is to calculate love days and view lunar calendar</p>
-      <p><b>AnD2</b> also provide tool to encrypt text messages for private conversations</p>
+      <img src="assets/img/slide-2.svg" class="slide-image"/>
+      <h2 class="slide-title">{{ 'TUTORIAL.PAGE_2.HEADER' | translate }}</h2>
+      <p>{{ 'TUTORIAL.PAGE_2.CONTENT_1' | translate }}</p>
+      <p>{{ 'TUTORIAL.PAGE_2.CONTENT_2' | translate }}</p>
     </ion-slide>
 
     <ion-slide>
-      <img src="assets/img/slide-3.svg" class="slide-image" />
-      <h2 class="slide-title">Ready to Play?</h2>
+      <img src="assets/img/slide-3.svg" class="slide-image"/>
+      <h2 class="slide-title">{{ 'TUTORIAL.PAGE_3.HEADER' | translate }}</h2>
       <ion-button fill="clear" (click)="startApp()">
-        Continue
+        {{ 'TUTORIAL.PAGE_3.CONTINUTE' | translate }}
         <ion-icon slot="end" name="arrow-forward"></ion-icon>
       </ion-button>
     </ion-slide>
   </ion-slides>
-
 </ion-content>
