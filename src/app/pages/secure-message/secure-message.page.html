@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Secure Message</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentChangeKeyPrompt()">
+        <ion-icon name="key-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div class="container">
+    <div class="toolbar">
+      <ion-button fill="clear" (click)="mode = !mode">
+        <ion-label>{{ mode ? 'Enctypt' : 'Decrypt' }}</ion-label>
+        <ion-icon slot="end" [name]="mode ? 'lock-closed-outline' : 'lock-open-outline'"></ion-icon>
+      </ion-button>
+      
+      <ion-button fill="clear" (click)="launchZalo()">
+        <ion-label>Chat</ion-label>
+        <ion-icon slot="end" name="chatbubble-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="main">
+      <div class="input-wrapper">
+        <div class="action-button">
+          <ion-button fill="clear" (click)="pasteText()">
+            <ion-icon name="document-outline"></ion-icon>
+          </ion-button>
+        </div>
+
+        <ion-textarea class="text-input" rows="10" cols="20" placeholder="Input here..." [(ngModel)]="model.inMessage" (keyup)="onKeypress()"></ion-textarea>
+      </div>
+
+      <div class="input-wrapper" style="margin-top: 20px;">
+        <div class="action-button">
+          <ion-button fill="clear" (click)="copyText()">
+            <ion-icon name="copy-outline"></ion-icon>
+          </ion-button>
+        </div>
+
+        <ion-textarea class="text-input" rows="10" readonly placeholder="Output here..." [(ngModel)]="model.outMessage"></ion-textarea>
+      </div>
+    </div>
+  </div>
+</ion-content>

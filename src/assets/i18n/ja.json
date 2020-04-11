@@ -78,9 +78,27 @@
       "EMAIL": "Email"
     },
     "SHARE": {
-      "HEADER": "共有 そして 饋還",
+      "HEADER": "共有 と 饋還",
       "SHARE_TO": "友達と共有する",
       "FEEDBACK": "饋還"
+    }
+  },
+
+  "TUTORIAL": {
+    "SKIP": "Skip",
+    "PAGE_1": {
+      "HEADER": "Welcome to <b>AnD2</b>",
+      "CONTENT_1": "The <b>AnD2</b> is a cross platform application to view Vietnamese lunar calendar and calculate date diff",
+      "CONTENT_2": "A lunar calendar is a calendar based on the monthly cycles of the Moon's phases"
+    },
+    "PAGE_2": {
+      "HEADER": "Why <b>AnD2</b> created?",
+      "CONTENT_1": "The main purpose of <b>AnD2</b> is to calculate love days and view lunar calendar",
+      "CONTENT_2": "<b>AnD2</b> also provide tool to encrypt text messages for private conversations"
+    },
+    "PAGE_3": {
+      "HEADER": "Ready to Play?",
+      "CONTINUTE": "Continue"
     }
   }
 }

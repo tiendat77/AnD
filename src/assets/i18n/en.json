@@ -82,5 +82,23 @@
       "SHARE_TO": "Share to your friends",
       "FEEDBACK": "Feedback"
     }
+  },
+
+  "TUTORIAL": {
+    "SKIP": "Skip",
+    "PAGE_1": {
+      "HEADER": "Welcome to AnD2",
+      "CONTENT_1": "AnD2 is a cross platform application to view Vietnamese lunar calendar and calculate date diff",
+      "CONTENT_2": "A lunar calendar is a calendar based on the monthly cycles of the Moon's phases"
+    },
+    "PAGE_2": {
+      "HEADER": "Why AnD2 created?",
+      "CONTENT_1": "The main purpose of AnD2 is to calculate love days and view lunar calendar",
+      "CONTENT_2": "AnD2 also provide tool to encrypt text messages for private conversations"
+    },
+    "PAGE_3": {
+      "HEADER": "Ready to Play?",
+      "CONTINUTE": "Continue"
+    }
   }
 }

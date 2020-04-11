@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform, ModalController, PopoverController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { Platform, PopoverController } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
@@ -7,28 +8,29 @@ import { AppAvailability } from '@ionic-native/app-availability/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { STORAGE_SECRET_KEY, DEFAULT_SECRET_KEY } from '../../../environments/storage.key';
-import { SecretKeyComponent } from '../secret-key/secret-key.component';
+import { SecretKeyComponent } from '../../modals/secret-key/secret-key.component';
 import { NotifyService } from 'src/app/providers/notify.service';
+
 import * as aesjs from 'aes-js';
 
 @Component({
   selector: 'app-secure-message',
-  templateUrl: './secure-message.component.html',
-  styleUrls: ['./secure-message.component.scss'],
+  templateUrl: './secure-message.page.html',
+  styleUrls: ['./secure-message.page.scss'],
 })
-export class SecureMessageComponent implements OnInit {
+export class SecureMessagePage implements OnInit {
 
   model: {
     inMessage: string,
     outMessage: string,
   };
 
-  mode: 'encrypt' | 'decrypt';
+  mode: boolean; // 0: encrypt | 1: decrypt
   secretKey: string;
 
   constructor(
+    private router: Router,
     private platform: Platform,
-    private modalCtrl: ModalController,
     private popoverCtrl: PopoverController,
     private clipboard: Clipboard,
     private appAvailability: AppAvailability,
@@ -47,7 +49,7 @@ export class SecureMessageComponent implements OnInit {
       outMessage: '',
     };
 
-    this.mode = 'encrypt';
+    this.mode = true;
 
     this.storage.get(STORAGE_SECRET_KEY).then(key => {
       if (key) {
@@ -59,8 +61,8 @@ export class SecureMessageComponent implements OnInit {
     });
   }
 
-  async goBack() {
-    return await this.modalCtrl.dismiss();
+  goBack() {
+    this.router.navigateByUrl('tabs/tool');
   }
 
   async presentChangeKeyPrompt() {
@@ -80,6 +82,14 @@ export class SecureMessageComponent implements OnInit {
     });
 
     return await popover.present();
+  }
+
+  onKeypress() {
+    if (this.mode) {
+      this.encrypt();
+    } else {
+      this.decrypt();
+    }
   }
 
   // From: https://github.com/ricmoo/aes-js

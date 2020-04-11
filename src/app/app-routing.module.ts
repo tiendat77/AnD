@@ -21,10 +21,14 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
-  // {
-  //   path: '*',
-  //   loadChildren: () => import('').then(m => m.)
-  // }
+  {
+    path: 'secure-message',
+    loadChildren: () => import('./pages/secure-message/secure-message.module').then( m => m.SecureMessagePageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/error/error.module').then( m => m.ErrorPageModule)
+  },
 ];
 
 @NgModule({

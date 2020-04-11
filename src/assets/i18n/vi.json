@@ -82,5 +82,23 @@
       "SHARE_TO": "Chia sẻ tới bạn bè",
       "FEEDBACK": "Phản hồi"
     }
+  },
+
+  "TUTORIAL": {
+    "SKIP": "Bỏ qua",
+    "PAGE_1": {
+      "HEADER": "Chào mừng đến với AnD2",
+      "CONTENT_1": "AnD2 là một ứng dụng đa nền tảng để xem âm lịch Việt Nam và đếm số ngày quen nhau của các cặp đôi",
+      "CONTENT_2": "Âm lịch là loại lịch của người phương Đông dựa trên chu kì của mặt trăng"
+    },
+    "PAGE_2": {
+      "HEADER": "Ứng dụng của AnD2 là gì?",
+      "CONTENT_1": "Ứng dụng chính của AnD2 là xem âm lịch Việt Nam và đếm ngày",
+      "CONTENT_2": "AnD2 còn cung cấp công cụ mã hóa tin nhắn đảm bảo riêng tư cho các cuộc hội thoại"
+    },
+    "PAGE_3": {
+      "HEADER": "Bạn đã sẵn sàng chưa?",
+      "CONTINUTE": "Tiếp tục"
+    }
   }
 }
