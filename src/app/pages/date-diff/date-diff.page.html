@@ -37,7 +37,7 @@
         <div class="circle"></div>
 
         <div class="days" *ngIf="days && isCalculated">
-          <div>in love</div>
+          <div>over</div>
           <div style="font-size: 30px;">
             <span>{{ diffService.model.days }}</span>
           </div>
@@ -45,7 +45,7 @@
         </div>
 
         <div class="days" *ngIf="!days && isCalculated">
-          <div>good bye</div>
+          <div>over</div>
           <div *ngIf="diffService.model.dmy.years">
             <span style="font-size: 24px;">{{ diffService.model.dmy.years }}</span>
             <span> years</span>

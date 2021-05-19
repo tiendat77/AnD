@@ -9,7 +9,7 @@ export const STORAGE_NAME_2 = 'AND2.NAME_2';
 export const STORAGE_AVATAR_1 = 'AND2.AVATAR_1';
 export const STORAGE_AVATAR_2 = 'AND2.AVATAR_2';
 
-export const DEFAULT_START_DATE = '18/03/2021';
+export const DEFAULT_START_DATE = '2021-03-18';
 export const DEFAULT_NAME_1 = '?';
 export const DEFAULT_NAME_2 = '?';
 export const DEFAULT_AVATAR_1 = 'https://www.gravatar.com/avatar/10?d=monsterid&f=y';
